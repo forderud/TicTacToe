@@ -21,10 +21,6 @@ Window {
 
         readonly property int margin: 18
         readonly property color backgroundColor: "#222222"
-        readonly property int minLandscapeModeWidth: numberPad.landscapeModeWidth
-                                                     + calcDisplay.minWidth + margin * 3
-
-        property bool isPortraitMode: root.width < root.minLandscapeModeWidth
 
         ApplicationState {
             id: appState
@@ -42,15 +38,14 @@ Window {
             Layout.margins: root.margin
 
             // remove the margin on the side that the numberPad is on, to prevent a double margin
-            Layout.bottomMargin: root.isPortraitMode ? 0 : root.margin
-            Layout.rightMargin: root.isPortraitMode ? root.margin : 0
+            Layout.bottomMargin: 0
+            Layout.rightMargin: root.margin
         }
 
         NumberPad {
             id: numberPad
             Layout.margins: root.margin
 
-            isPortraitMode: root.isPortraitMode
             applicationState: appState
         }
 
@@ -58,7 +53,6 @@ Window {
         ColumnLayout {
             id: portraitMode
             anchors.fill: parent
-            visible: root.isPortraitMode
 
             LayoutItemProxy {
                 target: calcDisplay
@@ -67,20 +61,6 @@ Window {
             LayoutItemProxy {
                 target: numberPad
                 Layout.alignment: Qt.AlignHCenter
-            }
-        }
-
-        RowLayout {
-            id: landscapeMode
-            anchors.fill: parent
-            visible: !root.isPortraitMode
-
-            LayoutItemProxy {
-                target: calcDisplay
-            }
-            LayoutItemProxy {
-                target: numberPad
-                Layout.alignment: Qt.AlignVCenter
             }
         }
 

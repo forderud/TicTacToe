@@ -6,7 +6,6 @@ import QtQuick.Layouts
 Item {
     id: controller
 
-    required property bool isPortraitMode
     required property ApplicationState applicationState
 
     readonly property color qtGreenColor: "#2CDE85"
@@ -14,18 +13,13 @@ Item {
     readonly property int spacing: 5
 
     property int portraitModeWidth: mainGrid.width
-    property int landscapeModeWidth: scientificGrid.width + mainGrid.width
 
-    implicitWidth: isPortraitMode ? portraitModeWidth : landscapeModeWidth
+    implicitWidth: portraitModeWidth
     implicitHeight: mainGrid.height
 
     function updateDimmed() {
         for (let i = 0; i < mainGrid.children.length; i++) {
             mainGrid.children[i].dimmed = applicationState.isButtonDisabled(mainGrid.children[i].text);
-        }
-        for (let j = 0; j < scientificGrid.children.length; j++) {
-            scientificGrid.children[j].dimmed = applicationState.isButtonDisabled(
-                        scientificGrid.children[j].text);
         }
     }
 
@@ -57,53 +51,6 @@ Item {
 
         RowLayout {
             spacing: controller.spacing
-
-            GridLayout {
-                id: scientificGrid
-                columns: 3
-                columnSpacing: controller.spacing
-                rowSpacing: controller.spacing
-                visible: !controller.isPortraitMode
-
-                OperatorButton {
-                    text: "x²"
-                    Accessible.name: "x squared"
-                }
-                OperatorButton {
-                    text: "⅟x"
-                    Accessible.name: "one over x"
-                }
-                OperatorButton { text: "√" }
-                OperatorButton {
-                    text: "x³"
-                    Accessible.name: "x cubed"
-                }
-                OperatorButton {
-                    text: "sin"
-                    Accessible.name: "sine"
-                }
-                OperatorButton {
-                    text: "|x|"
-                    Accessible.name: "absolute value"
-                }
-                OperatorButton { text: "log" }
-                OperatorButton {
-                    text: "cos"
-                    Accessible.name: "cosine"
-                }
-                DigitButton {
-                    text: "e"
-                    dimmable: true
-                    implicitWidth: 48
-                }
-                OperatorButton { text: "ln" }
-                OperatorButton { text: "tan" }
-                DigitButton {
-                    text: "π"
-                    dimmable: true
-                    implicitWidth: 48
-                }
-            }
 
             GridLayout {
                 id: mainGrid
