@@ -1,12 +1,9 @@
-// Copyright (C) 2020 The Qt Company Ltd.
-// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
-
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
 
-int main(int argc, char *argv[])
-{
+
+int main(int argc, char *argv[]) {
     QCoreApplication::setOrganizationName("QtProject");
     QCoreApplication::setApplicationName("Calqlatr");
 
