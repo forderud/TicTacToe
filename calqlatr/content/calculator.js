@@ -10,8 +10,6 @@ function isOperationDisabled(op, display) {
         return true
     if (op === '=' && pendingOperator.length != 1)
         return true
-    if (op === "√" &&  digits.search(/-/) != -1)
-        return true
     if (op === "AC" && display.isDisplayEmpty())
         return true
 
@@ -76,10 +74,7 @@ function operatorPressed(op, display) {
         display.newLine("=", Number(digits))
     }
 
-    if (op === "√") {
-        digits = (Math.sqrt(digits.valueOf())).toString()
-        display.newLine("√", Number(digits))
-    } else if (op === "⅟x") {
+    if (op === "⅟x") {
         digits = (1 / digits.valueOf()).toString()
         display.newLine("⅟x", Number(digits))
     } else if (op === "x²") {
