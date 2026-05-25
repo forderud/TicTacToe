@@ -43,7 +43,7 @@ Item {
 
             GridLayout {
                 id: mainGrid
-                columns: 5
+                columns: 4
                 columnSpacing: controller.spacing
                 rowSpacing: controller.spacing
 
@@ -56,7 +56,6 @@ Item {
                 DigitButton { text: "7" }
                 DigitButton { text: "8" }
                 DigitButton { text: "9" }                
-                Item { Layout.fillWidth: true } // empty cell
 
                 OperatorButton {
                     text: "AC"
@@ -66,7 +65,6 @@ Item {
                 DigitButton { text: "4" }
                 DigitButton { text: "5" }
                 DigitButton { text: "6" }
-                Item { Layout.fillWidth: true } // empty cell
 
                 OperatorButton {
                     text: "="
@@ -76,11 +74,9 @@ Item {
                 DigitButton { text: "1" }
                 DigitButton { text: "2" }
                 DigitButton { text: "3" }
-                Item { Layout.fillWidth: true } // empty cell
 
                 Item { Layout.fillWidth: true } // empty cell
                 DigitButton { text: "0" }
-                Item { Layout.fillWidth: true } // empty cell
                 OperatorButton {
                     text: "+"
                     implicitWidth: 38
