@@ -40,8 +40,8 @@ RoundButton {
 
     function getIcon() {
         if (button.pressed)
-            return "images/backspace_fill.svg";
-        return "images/backspace.svg";
+            return "images/x.svg";
+        return "images/duck.svg";
     }
 
     background: Rectangle {

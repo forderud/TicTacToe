@@ -21,8 +21,8 @@ qt_add_qml_module(calqlatr
         "content/BackspaceButton.qml"
         "content/calculator.js"
     RESOURCES
-        "content/images/backspace.svg"
-        "content/images/backspace_fill.svg"
+        "content/images/x.svg"
+        "content/images/duck.svg"
 )
 
 if(ANDROID)
