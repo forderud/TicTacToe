@@ -10,9 +10,8 @@ RoundButton {
     icon.width: 38
     icon.height: 38
     icon.color: getIconColor()
-    // include this text property as the calculator engine
-    // differentiates buttons through text. The text is never drawn.
-    text: "bs"
+    // The text is never drawn.
+    text: ""
 
     readonly property color backgroundColor: "#222222"
     readonly property color borderColor: "#A9A9A9"

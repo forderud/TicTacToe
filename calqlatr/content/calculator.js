@@ -8,9 +8,6 @@ function isOperationDisabled(op, display) {
         return true
     if (digits === "" && !((op >= "0" && op <= "9") || op === "π" || op === "e" || op === "AC"))
         return true
-    if (op === "bs" && (display.isOperandEmpty() || !((lastButton >= "0" && lastButton <= "9")
-                                                      || lastButton === "π" || lastButton === "e")))
-        return true
     if (op === '=' && pendingOperator.length != 1)
         return true
     if (op === "√" &&  digits.search(/-/) != -1)
@@ -57,14 +54,6 @@ function digitPressed(op, display) {
 function operatorPressed(op, display) {
     if (isOperationDisabled(op, display))
         return
-
-    if (op === "bs") {
-        digits = digits.slice(0, -1)
-        if (digits === "-")
-            digits = ""
-        display.backspace()
-        return
-    }
 
     lastButton = op
 
