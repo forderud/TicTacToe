@@ -17,31 +17,20 @@ Item {
     implicitWidth: portraitModeWidth
     implicitHeight: mainGrid.height
 
-    function updateDimmed() {
-        for (let i = 0; i < mainGrid.children.length; i++) {
-            mainGrid.children[i].dimmed = applicationState.isButtonDisabled(mainGrid.children[i].text);
-        }
-    }
-
     component DigitButton: CalculatorButton {
         onClicked: {
             controller.applicationState.digitPressed(text);
-            controller.updateDimmed();
         }
     }
 
     component OperatorButton: CalculatorButton {
-        dimmable: true
         implicitWidth: 48
         textColor: controller.qtGreenColor
 
         onClicked: {
             controller.applicationState.operatorPressed(text);
-            controller.updateDimmed();
         }
     }
-
-    Component.onCompleted: updateDimmed()
 
     Rectangle {
         id: numberPad
@@ -61,7 +50,6 @@ Item {
                 BackspaceButton {
                     onClicked: {
                         controller.applicationState.operatorPressed(this.text);
-                        controller.updateDimmed();
                     }
                 }
 

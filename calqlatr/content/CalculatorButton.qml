@@ -7,8 +7,6 @@ RoundButton {
     implicitHeight: 38
     radius: buttonRadius
 
-    property bool dimmable: false
-    property bool dimmed: false
     readonly property int fontSize: 22
     readonly property int buttonRadius: 8
     property color textColor: "#FFFFFF"
@@ -17,24 +15,18 @@ RoundButton {
     readonly property color borderColor: "#A9A9A9"
 
     function getBackgroundColor() {
-        if (button.dimmable && button.dimmed)
-            return backgroundColor;
         if (button.pressed)
             return accentColor;
         return backgroundColor;
     }
 
     function getBorderColor() {
-        if (button.dimmable && button.dimmed)
-            return borderColor;
         if (button.pressed || button.hovered)
             return accentColor;
         return borderColor;
     }
 
     function getTextColor() {
-        if (button.dimmable && button.dimmed)
-            return Qt.darker(textColor);
         if (button.pressed)
             return backgroundColor;
         if (button.hovered)
