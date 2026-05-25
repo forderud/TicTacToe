@@ -10,7 +10,4 @@ QtObject {
     function digitPressed(digit) {
         CalcEngine.digitPressed(digit, display);
     }
-    function isButtonDisabled(op) {
-        return CalcEngine.isOperationDisabled(op, display);
-    }
 }
