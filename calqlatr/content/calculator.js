@@ -60,12 +60,6 @@ function operatorPressed(op, display) {
     if (isOperationDisabled(op, display))
         return
 
-    if (op === "±") {
-        digits = Number(digits.valueOf() * -1).toString()
-        display.setDigit(display.displayNumber(Number(digits)))
-        return
-    }
-
     if (op === "bs") {
         digits = digits.slice(0, -1)
         if (digits === "-")
