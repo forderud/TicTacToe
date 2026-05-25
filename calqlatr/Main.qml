@@ -20,7 +20,7 @@ Window {
         anchors.bottomMargin: parent.SafeArea.margins.bottom
 
         readonly property int margin: 18
-        readonly property color backgroundColor: "#222222"
+        readonly property color backgroundColor: "#DDDDDD"
 
         ApplicationState {
             id: appState
