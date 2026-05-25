@@ -9,11 +9,9 @@ function isOperationDisabled(op, display) {
     if (digits === "" && !((op >= "0" && op <= "9") || op === "π" || op === "e" || op === "AC"))
         return true
     if (op === "bs" && (display.isOperandEmpty() || !((lastButton >= "0" && lastButton <= "9")
-                                                      || lastButton === "π" || lastButton === "e" || lastButton === ".")))
+                                                      || lastButton === "π" || lastButton === "e")))
         return true
     if (op === '=' && pendingOperator.length != 1)
-        return true
-    if (op === "." && digits.search(/\./) != -1)
         return true
     if (op === "√" &&  digits.search(/-/) != -1)
         return true
@@ -42,8 +40,8 @@ function digitPressed(op, display) {
         return
     }
 
-    // append a digit to another digit or decimal point
-    if (lastButton.toString().length === 1 && ((lastButton >= "0" && lastButton <= "9") || lastButton === ".") ) {
+    // append a digit to another digit
+    if (lastButton.toString().length === 1 && ((lastButton >= "0" && lastButton <= "9")) ) {
         if (digits.length >= display.maxDigits)
             return
         digits = digits + op.toString()

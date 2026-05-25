@@ -92,10 +92,7 @@ Item {
 
                 Item { Layout.fillWidth: true } // empty cell
                 DigitButton { text: "0" }
-                DigitButton {
-                    text: "."
-                    dimmable: true
-                }
+                Item { Layout.fillWidth: true } // empty cell
                 OperatorButton {
                     text: "+"
                     implicitWidth: 38
