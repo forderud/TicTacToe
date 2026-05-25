@@ -67,11 +67,8 @@ Item {
 
                 DigitButton { text: "7" }
                 DigitButton { text: "8" }
-                DigitButton { text: "9" }
-                OperatorButton {
-                    text: "÷"
-                    implicitWidth: 38
-                }
+                DigitButton { text: "9" }                
+                Item { Layout.fillWidth: true } // empty cell
 
                 OperatorButton {
                     text: "AC"
@@ -81,10 +78,7 @@ Item {
                 DigitButton { text: "4" }
                 DigitButton { text: "5" }
                 DigitButton { text: "6" }
-                OperatorButton {
-                    text: "×"
-                    implicitWidth: 38
-                }
+                Item { Layout.fillWidth: true } // empty cell
 
                 OperatorButton {
                     text: "="
