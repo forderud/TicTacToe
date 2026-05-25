@@ -88,10 +88,7 @@ Item {
                 DigitButton { text: "1" }
                 DigitButton { text: "2" }
                 DigitButton { text: "3" }
-                OperatorButton {
-                    text: "−"
-                    implicitWidth: 38
-                }
+                Item { Layout.fillWidth: true } // empty cell
 
                 Item { Layout.fillWidth: true } // empty cell
                 DigitButton { text: "0" }

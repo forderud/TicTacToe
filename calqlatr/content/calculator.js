@@ -72,11 +72,9 @@ function operatorPressed(op, display) {
 
     if (pendingOperator === "+") {
         digits = (Number(accumulator) + Number(digits.valueOf())).toString()
-    } else if (pendingOperator === "−") {
-        digits = (Number(accumulator) - Number(digits.valueOf())).toString()
     }
 
-    if (op === "+" || op === "−") {
+    if (op === "+") {
         pendingOperator = op
         accumulator = digits.valueOf()
         digits = ""
