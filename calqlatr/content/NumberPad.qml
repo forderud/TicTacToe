@@ -47,7 +47,7 @@ Item {
                 columnSpacing: controller.spacing
                 rowSpacing: controller.spacing
 
-                BackspaceButton {
+                PlayButton {
                     onClicked: {
                         controller.applicationState.operatorPressed(this.text);
                     }
