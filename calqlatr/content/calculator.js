@@ -74,38 +74,6 @@ function operatorPressed(op, display) {
         display.newLine("=", Number(digits))
     }
 
-    if (op === "⅟x") {
-        digits = (1 / digits.valueOf()).toString()
-        display.newLine("⅟x", Number(digits))
-    } else if (op === "x²") {
-        digits = (digits.valueOf() * digits.valueOf()).toString()
-        display.newLine("x²", Number(digits))
-    } else if (op === "x³") {
-        digits = (digits.valueOf() * digits.valueOf() * digits.valueOf()).toString()
-        display.newLine("x³", Number(digits))
-    } else if (op === "|x|") {
-        digits = (Math.abs(digits.valueOf())).toString()
-        display.newLine("|x|", Number(digits))
-    } else if (op === "⌊x⌋") {
-        digits = (Math.floor(digits.valueOf())).toString()
-        display.newLine("⌊x⌋", Number(digits))
-    } else if (op === "sin") {
-        digits = Number(Math.sin(digits.valueOf())).toString()
-        display.newLine("sin", Number(digits))
-    } else if (op === "cos") {
-        digits = Number(Math.cos(digits.valueOf())).toString()
-        display.newLine("cos", Number(digits))
-    } else if (op === "tan") {
-        digits = Number(Math.tan(digits.valueOf())).toString()
-        display.newLine("tan", Number(digits))
-    } else if (op === "log") {
-        digits = Number(Math.log10(digits.valueOf())).toString()
-        display.newLine("log", Number(digits))
-    } else if (op === "ln") {
-        digits = Number(Math.log(digits.valueOf())).toString()
-        display.newLine("ln", Number(digits))
-    }
-
     if (op === "AC") {
         display.allClear()
         accumulator = 0
