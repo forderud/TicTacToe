@@ -1,9 +1,11 @@
 #include "ResultChecker.hpp"
 
 ResultChecker::ResultChecker() {
+    printf("ResultChecker loaded.\n");
 }
 
 ResultChecker::~ResultChecker() {
+    printf("ResultChecker unloaded.\n");
 }
 
 static int WinCheck(QChar item1, QChar item2, QChar item3) {
