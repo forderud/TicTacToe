@@ -68,4 +68,18 @@ function fieldPressed(grid, display) {
             }
         }
     }
+
+    // check for vertical win
+    for (let col = 0; col < 3; col++) {
+        let item1 = grid.children[4*0 + col+1]
+        let item2 = grid.children[4*1 + col+1]
+        let item3 = grid.children[4*2 + col+1]
+        if (item1.text !== "") {
+            if ((item1.text === item2.text) && (item1.text === item3.text)) {
+                display.newTextLine(`Vertical win at row ${row}`)
+            }
+        }
+    }
+
+    // TODO: Check for diagonal win
 }
