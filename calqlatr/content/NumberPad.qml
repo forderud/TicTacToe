@@ -20,6 +20,7 @@ Item {
     component DigitButton: CalculatorButton {
         onClicked: {
             text = "x"
+            controller.applicationState.fieldPressed(mainGrid)
         }
     }
 
@@ -43,29 +44,18 @@ Item {
 
             GridLayout {
                 id: mainGrid
-                columns: 4
+                columns: 3
                 columnSpacing: controller.spacing
                 rowSpacing: controller.spacing
 
-                PlayButton {
-                    onClicked: {
-                        controller.applicationState.fieldPressed(mainGrid)
-                    }
-                }
                 DigitButton { text: "" }
                 DigitButton { text: "" }
                 DigitButton { text: "" }
 
-                OperatorButton {
-                    text: "+"
-                }
                 DigitButton { text: "" }
                 DigitButton { text: "" }
                 DigitButton { text: "" }
 
-                OperatorButton {
-                    text: "="
-                }
                 DigitButton { text: "" }
                 DigitButton { text: "" }
                 DigitButton { text: "" }
