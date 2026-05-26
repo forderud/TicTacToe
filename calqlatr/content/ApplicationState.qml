@@ -3,7 +3,7 @@ import QtQml
 QtObject {
     required property Display display
 
-    function fieldPressed(grid) {
+    function checkForWin(grid) {
         // convert game state to a string
         let state = ""
         for (let i = 0; i < 9; i++)
@@ -14,11 +14,13 @@ QtObject {
         let res = checker.check(state)
         if (res > 0) {
             display.displayText(("X won"))
+            // reset game
             for (let i = 0; i < 9; i++)
                 grid.children[i].text = " "
 
         } else if (res < 0) {
             display.displayText(("O won"))
+            // reset game
             for (let i = 0; i < 9; i++)
                 grid.children[i].text = " "
         }

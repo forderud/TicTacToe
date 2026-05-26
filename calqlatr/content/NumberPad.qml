@@ -23,7 +23,7 @@ Item {
         onClicked: {
             text = lastWasX ? "x" : "o"
             lastWasX = !lastWasX
-            controller.applicationState.fieldPressed(mainGrid)
+            controller.applicationState.checkForWin(mainGrid)
         }
     }
 
