@@ -1,6 +1,7 @@
 #pragma once
 #include <QObject>
 #include <QQmlEngine>
+#include <ResultChecker/ResultChecker.hpp> // only for signature
 #ifdef _WIN32
 #include <Windows.h>
 #endif
@@ -20,4 +21,5 @@ private:
 #ifdef _WIN32
     HMODULE m_lib = nullptr;
 #endif
+    decltype(&CheckForWin) m_func_ptr = nullptr;
 };

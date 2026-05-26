@@ -7,6 +7,7 @@ ResultChecker::ResultChecker() {
 
 #ifdef _WIN32
     m_lib = LoadLibraryW(L"ResultChecker.dll");
+    m_func_ptr = (decltype(&CheckForWin))GetProcAddress(m_lib, "CheckForWin");
 #endif
 }
 
@@ -16,6 +17,7 @@ ResultChecker::~ResultChecker() {
 #ifdef _WIN32
     FreeLibrary(m_lib);
     m_lib = nullptr;
+    m_func_ptr = nullptr;
 #endif
 }
 
@@ -26,8 +28,7 @@ int ResultChecker::check(QString cells) {
         buffer[i] = cells[i].cell();
 
 #ifdef _WIN32
-    auto func_ptr = (decltype(&CheckForWin))GetProcAddress(m_lib, "CheckForWin");
-    return func_ptr(buffer);
+    return m_func_ptr(buffer);
 #else
     return CheckForWin(buffer);
 #endif
