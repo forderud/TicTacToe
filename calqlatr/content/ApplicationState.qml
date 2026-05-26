@@ -25,7 +25,7 @@ QtObject {
                 grid.children[i].text = " "
         }
 
-        checker = null
-        gc()
+        // unload ResultChecker
+        checker.destroy()
     }
 }
