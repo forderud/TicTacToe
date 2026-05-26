@@ -22,6 +22,9 @@ Item {
     component PlayField: CalculatorButton {
         text: " "
         onClicked: {
+            if (text !== " ")
+                return; // cell already set
+
             text = lastWasX ? "o" : "x"
             lastWasX = !lastWasX
             controller.applicationState.checkForWin(mainGrid)
