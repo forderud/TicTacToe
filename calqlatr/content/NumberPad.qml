@@ -58,7 +58,10 @@ Item {
                 DigitButton { text: "8" }
                 DigitButton { text: "9" }                
 
-                Item { Layout.fillWidth: true } // empty cell
+                OperatorButton {
+                    text: "+"
+                    implicitWidth: 38
+                }
                 DigitButton { text: "4" }
                 DigitButton { text: "5" }
                 DigitButton { text: "6" }
@@ -74,10 +77,7 @@ Item {
 
                 Item { Layout.fillWidth: true } // empty cell
                 DigitButton { text: "0" }
-                OperatorButton {
-                    text: "+"
-                    implicitWidth: 38
-                }
+                Item { Layout.fillWidth: true } // empty cell
             }
         } // RowLayout
     }
