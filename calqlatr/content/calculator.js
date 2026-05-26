@@ -4,11 +4,9 @@ let lastButton = ""
 let digits = ""
 
 function isOperationDisabled(op, display) {
-    if (digits === "" && !((op >= "0" && op <= "9") || op === "AC"))
+    if (digits === "" && !(op >= "0" && op <= "9"))
         return true
     if (op === '=' && pendingOperator.length != 1)
-        return true
-    if (op === "AC" && display.isDisplayEmpty())
         return true
 
     return false
@@ -56,12 +54,18 @@ function operatorPressed(op, display) {
     if (op === "=") {
         display.newLine("=", Number(digits))
     }
+}
 
-    if (op === "AC") {
-        display.allClear()
-        accumulator = 0
-        lastButton = ""
-        digits = ""
-        pendingOperator = ""
+function fieldPressed(grid, display) {
+    // check for horizontal win
+    for (let row = 0; row < 3; row++) {
+        let item1 = grid.children[4*row + 1]
+        let item2 = grid.children[4*row + 2]
+        let item3 = grid.children[4*row + 3]
+        if (item1.text !== "") {
+            if ((item1.text === item2.text) && (item1.text === item3.text)) {
+                display.newTextLine(`Horizontal win at row ${row}`)
+            }
+        }
     }
 }

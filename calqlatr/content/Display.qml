@@ -32,6 +32,13 @@ Item {
         calculationsListView.positionViewAtEnd();
     }
 
+    function newTextLine(message) {
+        calculationsListView.model.append({
+                                              "operator": "",
+                                              "operand": message
+                                          });
+    }
+
     function appendDigit(digit) {
         if (!enteringDigits)
             calculationsListView.model.append({

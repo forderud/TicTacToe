@@ -48,9 +48,8 @@ Item {
                 rowSpacing: controller.spacing
 
                 PlayButton {
-                    text: "AC"
                     onClicked: {
-                        controller.applicationState.operatorPressed(this.text);
+                        controller.applicationState.fieldPressed(mainGrid)
                     }
                 }
                 DigitButton { text: "7" }
@@ -67,9 +66,9 @@ Item {
                 OperatorButton {
                     text: "="
                 }
-                DigitButton { text: "1" }
-                DigitButton { text: "2" }
-                DigitButton { text: "3" }
+                DigitButton { text: "o" }
+                DigitButton { text: "o" }
+                DigitButton { text: "o" }
             }
         } // RowLayout
     }

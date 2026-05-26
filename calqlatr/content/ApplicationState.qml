@@ -10,4 +10,7 @@ QtObject {
     function digitPressed(digit) {
         CalcEngine.digitPressed(digit, display);
     }
+    function fieldPressed(grid) {
+        CalcEngine.fieldPressed(grid, display);
+    }
 }
