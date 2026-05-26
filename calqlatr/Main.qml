@@ -10,7 +10,7 @@ Window {
     minimumHeight: calcDisplay.minHeight + numberPad.height + root.margin * 3
     color: root.backgroundColor
 
-    Item {
+    ColumnLayout {
         id: root
         anchors.fill: parent
 
@@ -47,21 +47,6 @@ Window {
             Layout.margins: root.margin
 
             applicationState: appState
-        }
-
-        // define the responsive layouts
-        ColumnLayout {
-            id: portraitMode
-            anchors.fill: parent
-
-            LayoutItemProxy {
-                target: calcDisplay
-                Layout.minimumHeight: calcDisplay.minHeight
-            }
-            LayoutItemProxy {
-                target: numberPad
-                Layout.alignment: Qt.AlignHCenter
-            }
         }
     }
 }
