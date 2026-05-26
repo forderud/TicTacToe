@@ -35,5 +35,27 @@ function fieldPressed(grid, display) {
         }
     }
 
-    // TODO: Check for diagonal win
+    // check for diagonal win
+    {
+        let item1 = grid.children[3*0 + 0]
+        let item2 = grid.children[3*1 + 1]
+        let item3 = grid.children[3*2 + 2]
+        if (item1.text !== "") {
+            if ((item1.text === item2.text) && (item1.text === item3.text)) {
+                display.newTextLine(`Diagonal win`)
+                clearGrid(grid)
+            }
+        }
+    }
+    {
+        let item1 = grid.children[3*0 + 2]
+        let item2 = grid.children[3*1 + 1]
+        let item3 = grid.children[3*2 + 0]
+        if (item1.text !== "") {
+            if ((item1.text === item2.text) && (item1.text === item3.text)) {
+                display.newTextLine(`Diagonal win`)
+                clearGrid(grid)
+            }
+        }
+    }
 }
