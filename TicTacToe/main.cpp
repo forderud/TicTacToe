@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[]) {
     QCoreApplication::setOrganizationName("QtProject");
-    QCoreApplication::setApplicationName("Calqlatr");
+    QCoreApplication::setApplicationName("TicTacToe");
 
     QGuiApplication app(argc, argv);
 
@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed,
             &app, []() { QCoreApplication::exit(-1); },
             Qt::QueuedConnection);
-    engine.loadFromModule("demos.calqlatr", "Main");
+    engine.loadFromModule("demos.TicTacToe", "Main");
 
     return app.exec();
 }
