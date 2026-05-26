@@ -11,7 +11,7 @@ QtObject {
 
         // check if someone have won
         var checker = Qt.createQmlObject('ResultChecker {}', this);
-        let res = checker.Check(state)
+        let res = checker.check(state)
         if (res > 0) {
             display.displayText(("X won"))
             for (let i = 0; i < 9; i++)

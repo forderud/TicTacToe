@@ -17,7 +17,7 @@ static int WinCheck(QChar item1, QChar item2, QChar item3) {
     return 0;
 }
 
-int ResultChecker::Check(QString cells) {
+int ResultChecker::check(QString cells) {
     // check for horizontal win
     for (int row = 0; row < 3; row++) {
         QChar item1 = cells[3*row + 0];

@@ -12,7 +12,7 @@ public:
     ~ResultChecker();
 
     /** Positive retval means "x" won and negative that "o" have won */
-    Q_INVOKABLE int Check(QString cells);
+    Q_INVOKABLE int check(QString cells);
 };
 
 #endif // RESULTCHECKER_HPP
