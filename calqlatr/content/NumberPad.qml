@@ -24,15 +24,6 @@ Item {
         }
     }
 
-    component OperatorButton: CalculatorButton {
-        implicitWidth: 48
-        textColor: controller.qtGreenColor
-
-        onClicked: {
-            controller.applicationState.operatorPressed(text);
-        }
-    }
-
     Rectangle {
         id: numberPad
         anchors.fill: parent
