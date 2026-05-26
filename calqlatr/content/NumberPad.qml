@@ -48,6 +48,7 @@ Item {
                 rowSpacing: controller.spacing
 
                 PlayButton {
+                    text: "AC"
                     onClicked: {
                         controller.applicationState.operatorPressed(this.text);
                     }
@@ -57,11 +58,7 @@ Item {
                 DigitButton { text: "8" }
                 DigitButton { text: "9" }                
 
-                OperatorButton {
-                    text: "AC"
-                    textColor: controller.backspaceRedColor
-                    accentColor: controller.backspaceRedColor
-                }
+                Item { Layout.fillWidth: true } // empty cell
                 DigitButton { text: "4" }
                 DigitButton { text: "5" }
                 DigitButton { text: "6" }
