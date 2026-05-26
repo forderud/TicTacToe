@@ -21,7 +21,7 @@ Item {
 
     component DigitButton: CalculatorButton {
         onClicked: {
-            text = lastWasX ? "x" : "o"
+            text = lastWasX ? "o" : "x"
             lastWasX = !lastWasX
             controller.applicationState.checkForWin(mainGrid)
         }
