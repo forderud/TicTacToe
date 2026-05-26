@@ -10,7 +10,7 @@ QtObject {
             state += grid.children[i].text
 
         // check if someone have won
-        var checker = Qt.createQmlObject('ResultChecker {}', this);
+        let checker = Qt.createQmlObject('ResultChecker {}', this);
         let res = checker.check(state)
         if (res > 0) {
             display.displayText(("X won"))
@@ -24,5 +24,8 @@ QtObject {
             for (let i = 0; i < 9; i++)
                 grid.children[i].text = " "
         }
+
+        checker = null
+        gc()
     }
 }
