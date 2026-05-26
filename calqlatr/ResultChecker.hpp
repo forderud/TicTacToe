@@ -1,6 +1,4 @@
-#ifndef RESULTCHECKER_HPP
-#define RESULTCHECKER_HPP
-
+#pragma once
 #include <QObject>
 #include <QQmlEngine>
 
@@ -14,5 +12,3 @@ public:
     /** Positive retval means "x" won and negative that "o" have won */
     Q_INVOKABLE int check(QString cells);
 };
-
-#endif // RESULTCHECKER_HPP
