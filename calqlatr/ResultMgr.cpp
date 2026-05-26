@@ -1,5 +1,8 @@
 #include "ResultMgr.hpp"
 #include <ResultChecker/ResultChecker.hpp>
+#ifndef _WIN32
+  #include <dlfcn.h>
+#endif
 
 
 ResultChecker::ResultChecker() {
@@ -8,6 +11,9 @@ ResultChecker::ResultChecker() {
 #ifdef _WIN32
     m_lib = LoadLibraryW(L"ResultChecker.dll");
     m_func_ptr = (decltype(&CheckForWin))GetProcAddress(m_lib, "CheckForWin");
+#else
+    m_lib = dlopen("ResultChecker.framework/ResultChecker", RTLD_LAZY);
+    m_func_ptr = (decltype(&CheckForWin))dlsym(m_lib, "CheckForWin");
 #endif
 }
 
@@ -27,9 +33,5 @@ int ResultChecker::check(QString cells) {
     for (int i = 0; i < 9; i++)
         buffer[i] = cells[i].cell();
 
-#ifdef _WIN32
     return m_func_ptr(buffer);
-#else
-    return CheckForWin(buffer);
-#endif
 }

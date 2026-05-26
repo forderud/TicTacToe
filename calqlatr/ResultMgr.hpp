@@ -20,6 +20,8 @@ public:
 private:
 #ifdef _WIN32
     HMODULE m_lib = nullptr;
+#else
+    void*   m_lib = nullptr;
 #endif
     decltype(&CheckForWin) m_func_ptr = nullptr;
 };
