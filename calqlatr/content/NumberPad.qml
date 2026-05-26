@@ -53,14 +53,12 @@ Item {
                         controller.applicationState.operatorPressed(this.text);
                     }
                 }
-
                 DigitButton { text: "7" }
                 DigitButton { text: "8" }
                 DigitButton { text: "9" }                
 
                 OperatorButton {
                     text: "+"
-                    implicitWidth: 38
                 }
                 DigitButton { text: "4" }
                 DigitButton { text: "5" }
@@ -68,16 +66,10 @@ Item {
 
                 OperatorButton {
                     text: "="
-                    implicitHeight: 81
-                    Layout.rowSpan: 2
                 }
                 DigitButton { text: "1" }
                 DigitButton { text: "2" }
                 DigitButton { text: "3" }
-
-                Item { Layout.fillWidth: true } // empty cell
-                DigitButton { text: "0" }
-                Item { Layout.fillWidth: true } // empty cell
             }
         } // RowLayout
     }
