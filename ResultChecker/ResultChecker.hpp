@@ -2,5 +2,7 @@
 
 
 extern "C" // avoid C++ name mangling
-__declspec(dllexport)
+#ifdef _WIN32
+  __declspec(dllexport)
+#endif
 int CheckForWin(char cells[9]);
