@@ -20,7 +20,6 @@ Item {
     component DigitButton: CalculatorButton {
         onClicked: {
             text = "x"
-            controller.applicationState.digitPressed(text);
         }
     }
 

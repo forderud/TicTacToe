@@ -12,24 +12,6 @@ function isOperationDisabled(op, display) {
     return false
 }
 
-function digitPressed(op, display) {
-    if (isOperationDisabled(op, display))
-        return
-
-    // append a digit to another digit
-    if (lastButton.toString().length === 1 && ((lastButton >= "0" && lastButton <= "9")) ) {
-        if (digits.length >= display.maxDigits)
-            return
-        digits = digits + op.toString()
-        display.appendDigit(op.toString())
-    // else just write a single digit to display
-    } else {
-        digits = op.toString()
-        display.appendDigit(digits)
-    }
-    lastButton = op
-}
-
 function operatorPressed(op, display) {
     if (isOperationDisabled(op, display))
         return

@@ -7,9 +7,6 @@ QtObject {
     function operatorPressed(operator) {
         CalcEngine.operatorPressed(operator, display);
     }
-    function digitPressed(digit) {
-        CalcEngine.digitPressed(digit, display);
-    }
     function fieldPressed(grid) {
         CalcEngine.fieldPressed(grid, display);
     }
