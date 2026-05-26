@@ -20,7 +20,6 @@ qt_add_qml_module(calqlatr
         "content/Display.qml"
         "content/NumberPad.qml"
         "content/CalculatorButton.qml"
-        "content/calculator.js"
 )
 
 if(ANDROID)

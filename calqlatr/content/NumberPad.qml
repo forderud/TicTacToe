@@ -42,17 +42,17 @@ Item {
                 columnSpacing: controller.spacing
                 rowSpacing: controller.spacing
 
-                DigitButton { text: "" }
-                DigitButton { text: "" }
-                DigitButton { text: "" }
+                DigitButton { text: " " }
+                DigitButton { text: " " }
+                DigitButton { text: " " }
 
-                DigitButton { text: "" }
-                DigitButton { text: "" }
-                DigitButton { text: "" }
+                DigitButton { text: " " }
+                DigitButton { text: " " }
+                DigitButton { text: " " }
 
-                DigitButton { text: "" }
-                DigitButton { text: "" }
-                DigitButton { text: "" }
+                DigitButton { text: " " }
+                DigitButton { text: " " }
+                DigitButton { text: " " }
             }
         } // RowLayout
     }
