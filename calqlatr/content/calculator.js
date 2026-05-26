@@ -4,9 +4,7 @@ let lastButton = ""
 let digits = ""
 
 function isOperationDisabled(op, display) {
-    if (digits !== "" && lastButton !== "=" && (op === "π" || op === "e"))
-        return true
-    if (digits === "" && !((op >= "0" && op <= "9") || op === "π" || op === "e" || op === "AC"))
+    if (digits === "" && !((op >= "0" && op <= "9") || op === "AC"))
         return true
     if (op === '=' && pendingOperator.length != 1)
         return true
@@ -19,21 +17,6 @@ function isOperationDisabled(op, display) {
 function digitPressed(op, display) {
     if (isOperationDisabled(op, display))
         return
-    if (lastButton === "π" || lastButton === "e")
-        return
-    // handle mathematical constants
-    if (op === "π") {
-        lastButton = op
-        digits = Math.PI.toPrecision(display.maxDigits - 1).toString()
-        display.appendDigit(digits)
-        return
-    }
-    if (op === "e") {
-        lastButton = op
-        digits = Math.E.toPrecision(display.maxDigits - 1).toString()
-        display.appendDigit(digits)
-        return
-    }
 
     // append a digit to another digit
     if (lastButton.toString().length === 1 && ((lastButton >= "0" && lastButton <= "9")) ) {
