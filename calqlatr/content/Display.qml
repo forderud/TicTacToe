@@ -13,7 +13,7 @@ Item {
     readonly property bool isError: displayedOperand === errorString
     property bool enteringDigits: false
 
-    function newTextLine(message) {
+    function displayText(message) {
         calculationsListView.model.append({
                                               "operator": "",
                                               "operand": message

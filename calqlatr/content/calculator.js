@@ -16,7 +16,7 @@ function fieldPressed(grid, display) {
         let item3 = grid.children[3*row + 2]
         if (item1.text !== "") {
             if ((item1.text === item2.text) && (item1.text === item3.text)) {
-                display.newTextLine(`Horizontal win at row ${row}`)
+                display.displayText(`Horizontal win at row ${row}`)
                 clearGrid(grid)
             }
         }
@@ -29,7 +29,7 @@ function fieldPressed(grid, display) {
         let item3 = grid.children[3*2 + col]
         if (item1.text !== "") {
             if ((item1.text === item2.text) && (item1.text === item3.text)) {
-                display.newTextLine(`Vertical win at col ${col}`)
+                display.displayText(`Vertical win at col ${col}`)
                 clearGrid(grid)
             }
         }
@@ -42,7 +42,7 @@ function fieldPressed(grid, display) {
         let item3 = grid.children[3*2 + 2]
         if (item1.text !== "") {
             if ((item1.text === item2.text) && (item1.text === item3.text)) {
-                display.newTextLine(`Diagonal win`)
+                display.displayText(`Diagonal win`)
                 clearGrid(grid)
             }
         }
@@ -53,7 +53,7 @@ function fieldPressed(grid, display) {
         let item3 = grid.children[3*2 + 0]
         if (item1.text !== "") {
             if ((item1.text === item2.text) && (item1.text === item3.text)) {
-                display.newTextLine(`Diagonal win`)
+                display.displayText(`Diagonal win`)
                 clearGrid(grid)
             }
         }
