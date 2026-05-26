@@ -76,7 +76,7 @@ function fieldPressed(grid, display) {
         let item3 = grid.children[4*2 + col+1]
         if (item1.text !== "") {
             if ((item1.text === item2.text) && (item1.text === item3.text)) {
-                display.newTextLine(`Vertical win at row ${row}`)
+                display.newTextLine(`Vertical win at col ${col}`)
             }
         }
     }

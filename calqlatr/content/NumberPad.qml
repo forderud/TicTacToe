@@ -19,6 +19,7 @@ Item {
 
     component DigitButton: CalculatorButton {
         onClicked: {
+            text = "x"
             controller.applicationState.digitPressed(text);
         }
     }
@@ -52,23 +53,23 @@ Item {
                         controller.applicationState.fieldPressed(mainGrid)
                     }
                 }
-                DigitButton { text: "7" }
-                DigitButton { text: "8" }
-                DigitButton { text: "9" }                
+                DigitButton { text: "" }
+                DigitButton { text: "" }
+                DigitButton { text: "" }
 
                 OperatorButton {
                     text: "+"
                 }
-                DigitButton { text: "4" }
-                DigitButton { text: "5" }
-                DigitButton { text: "6" }
+                DigitButton { text: "" }
+                DigitButton { text: "" }
+                DigitButton { text: "" }
 
                 OperatorButton {
                     text: "="
                 }
-                DigitButton { text: "o" }
-                DigitButton { text: "o" }
-                DigitButton { text: "o" }
+                DigitButton { text: "" }
+                DigitButton { text: "" }
+                DigitButton { text: "" }
             }
         } // RowLayout
     }
