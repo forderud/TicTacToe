@@ -20,6 +20,7 @@ Item {
     property bool lastWasX: false
 
     component DigitButton: CalculatorButton {
+        text: " "
         onClicked: {
             text = lastWasX ? "o" : "x"
             lastWasX = !lastWasX
@@ -42,17 +43,17 @@ Item {
                 columnSpacing: controller.spacing
                 rowSpacing: controller.spacing
 
-                DigitButton { text: " " }
-                DigitButton { text: " " }
-                DigitButton { text: " " }
+                DigitButton {}
+                DigitButton {}
+                DigitButton {}
 
-                DigitButton { text: " " }
-                DigitButton { text: " " }
-                DigitButton { text: " " }
+                DigitButton {}
+                DigitButton {}
+                DigitButton {}
 
-                DigitButton { text: " " }
-                DigitButton { text: " " }
-                DigitButton { text: " " }
+                DigitButton {}
+                DigitButton {}
+                DigitButton {}
             }
         } // RowLayout
     }
