@@ -5,13 +5,8 @@ import QtQuick
 Item {
     id: display
     property int fontSize: 22
-    readonly property int maxDigits: Math.min((width / fontSize) + 1, 9)
     readonly property color backgroundColor: "#262626"
     readonly property color qtGreenColor: "#2CDE85"
-    property string displayedOperand: ""
-    readonly property string errorString: qsTr("ERROR")
-    readonly property bool isError: displayedOperand === errorString
-    property bool enteringDigits: false
 
     function displayText(message) {
         calculationsListView.model.append({
@@ -20,20 +15,8 @@ Item {
                                           });
     }
 
-    function clear() {
-        displayedOperand = "";
-        if (enteringDigits) {
-            const i = calculationsListView.model.count - 1;
-            if (i >= 0)
-                calculationsListView.model.remove(i);
-            enteringDigits = false;
-        }
-    }
-
     function allClear() {
-        display.clear();
         calculationsListView.model.clear();
-        enteringDigits = false;
     }
 
     Item {
