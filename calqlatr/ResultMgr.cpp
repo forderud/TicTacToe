@@ -23,8 +23,11 @@ ResultChecker::~ResultChecker() {
 #ifdef _WIN32
     FreeLibrary(m_lib);
     m_lib = nullptr;
-    m_func_ptr = nullptr;
+#else
+    dlclose(m_lib);
+    m_lib = nullptr;
 #endif
+    m_func_ptr = nullptr;
 }
 
 int ResultChecker::check(QString cells) {
