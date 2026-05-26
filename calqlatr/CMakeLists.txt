@@ -10,6 +10,7 @@ target_link_libraries(calqlatr PRIVATE
     Qt6::Qml
     Qt6::Quick
     Qt6::QuickControls2
+    ResultChecker
 )
 
 qt_add_qml_module(calqlatr
