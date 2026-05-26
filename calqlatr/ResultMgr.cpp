@@ -20,6 +20,7 @@ ResultChecker::~ResultChecker() {
 }
 
 int ResultChecker::check(QString cells) {
+    assert(cells.size() == 9);
     char buffer[9] = {};
     for (int i = 0; i < 9; i++)
         buffer[i] = cells[i].cell();
