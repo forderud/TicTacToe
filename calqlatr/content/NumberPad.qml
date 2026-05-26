@@ -17,9 +17,12 @@ Item {
     implicitWidth: portraitModeWidth
     implicitHeight: mainGrid.height
 
+    property bool lastWasX: false
+
     component DigitButton: CalculatorButton {
         onClicked: {
-            text = "x"
+            text = lastWasX ? "x" : "o"
+            lastWasX = !lastWasX
             controller.applicationState.fieldPressed(mainGrid)
         }
     }
