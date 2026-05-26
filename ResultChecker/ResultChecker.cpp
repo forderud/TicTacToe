@@ -12,7 +12,7 @@ extern "C"
 #ifndef _WIN32
   __attribute__ ((visibility ("default")))
 #endif
-std::string_view LibraryFunction (const char* section_name) {
+std::string_view LibraryFunction () {
     static char buffer[1024] = {}; // static to allow string_view return
     size_t i = 0;
     i += snprintf(buffer+i, sizeof(buffer)-i, "Hello from ResultChecker!\n");
