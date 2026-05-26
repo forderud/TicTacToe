@@ -6,12 +6,14 @@
 
 class ResultChecker : public QObject {
     Q_OBJECT
+    QML_SINGLETON
     QML_ELEMENT
 public:
     ResultChecker();
     ~ResultChecker();
 
-    Q_INVOKABLE bool CheckForWin(QStringList cells);
+    /** Positive retval means "x" won and negative that "o" have won */
+    Q_INVOKABLE int Check(QString cells);
 };
 
 #endif // RESULTCHECKER_HPP

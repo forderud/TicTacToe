@@ -6,7 +6,7 @@ ResultChecker::ResultChecker() {
 ResultChecker::~ResultChecker() {
 }
 
-bool ResultChecker::CheckForWin(QStringList cells) {
-    /* C++ logic here */
-    return false;
+int ResultChecker::Check(QString cells) {
+    // TODO: Add result check here
+    return 0;
 }
