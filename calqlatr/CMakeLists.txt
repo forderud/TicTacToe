@@ -18,11 +18,7 @@ qt_add_qml_module(calqlatr
         "content/Display.qml"
         "content/NumberPad.qml"
         "content/CalculatorButton.qml"
-        "content/PlayButton.qml"
         "content/calculator.js"
-    RESOURCES
-        "content/images/x.svg"
-        "content/images/duck.svg"
 )
 
 if(ANDROID)
