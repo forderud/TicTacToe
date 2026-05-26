@@ -1,4 +1,4 @@
-#include "ResultChecker.hpp"
+#include "ResultMgr.hpp"
 #include <ResultChecker/ResultChecker.hpp>
 
 ResultChecker::ResultChecker() {

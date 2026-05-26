@@ -1,7 +1,7 @@
 qt_add_executable(calqlatr WIN32 MACOSX_BUNDLE
     main.cpp
-    ResultChecker.hpp
-    ResultChecker.cpp
+    ResultMgr.hpp
+    ResultMgr.cpp
 )
 
 target_link_libraries(calqlatr PRIVATE
