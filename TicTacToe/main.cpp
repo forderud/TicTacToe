@@ -4,7 +4,7 @@
 
 
 int main(int argc, char *argv[]) {
-    QCoreApplication::setOrganizationName("QtProject");
+    QCoreApplication::setOrganizationName("forderud");
     QCoreApplication::setApplicationName("TicTacToe");
 
     QGuiApplication app(argc, argv);
