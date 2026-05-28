@@ -5,7 +5,7 @@
 #endif
 
 
-ResultChecker::ResultChecker() {
+ResultMgr::ResultMgr() {
     printf("ResultChecker loaded.\n");
 
 #ifdef _WIN32
@@ -21,7 +21,7 @@ ResultChecker::ResultChecker() {
 #endif
 }
 
-ResultChecker::~ResultChecker() {
+ResultMgr::~ResultMgr() {
     printf("ResultChecker unloaded.\n");
 
 #ifdef _WIN32
@@ -34,7 +34,7 @@ ResultChecker::~ResultChecker() {
     m_func_ptr = nullptr;
 }
 
-int ResultChecker::check(QString cells) {
+int ResultMgr::check(QString cells) {
     assert(cells.size() == 9);
     char buffer[9] = {};
     for (int i = 0; i < 9; i++)

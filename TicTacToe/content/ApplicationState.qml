@@ -10,7 +10,7 @@ QtObject {
             state += grid.children[i].text
 
         // check if someone have won
-        let checker = Qt.createQmlObject('ResultChecker {}', this);
+        let checker = Qt.createQmlObject('ResultMgr {}', this);
         let res = checker.check(state)
         if (res > 0) {
             display.displayText(("X won"))
