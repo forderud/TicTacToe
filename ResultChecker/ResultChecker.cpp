@@ -64,3 +64,14 @@ int CheckForWin(char cells[9]) {
 
     return 0;
 }
+
+
+__attribute__((constructor))
+void LibraryLoading() {
+    printf("ResultChecker library loaded.\n");
+}
+
+__attribute__((destructor))
+void LibraryUnloading() {
+    printf("ResultChecker library unloaded.\n");
+}
