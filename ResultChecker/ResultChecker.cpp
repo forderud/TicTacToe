@@ -66,6 +66,8 @@ int CheckForWin(char cells[9]) {
 }
 
 
+#ifndef _WIN32
+
 __attribute__((constructor))
 void LibraryLoading() {
     printf("ResultChecker library loaded.\n");
@@ -75,3 +77,5 @@ __attribute__((destructor))
 void LibraryUnloading() {
     printf("ResultChecker library unloaded.\n");
 }
+
+#endif
