@@ -14,6 +14,7 @@ target_link_libraries(TicTacToe PRIVATE
 )
 if (APPLE)
      set_target_properties(TicTacToe PROPERTIES
+         # Embed framework(s) into .app bundle
          XCODE_EMBED_FRAMEWORKS ResultChecker
          XCODE_EMBED_FRAMEWORKS_CODE_SIGN_ON_COPY YES
      )
