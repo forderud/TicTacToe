@@ -19,7 +19,7 @@ if (APPLE)
         # Embed framework(s) into .app bundle
         XCODE_EMBED_FRAMEWORKS ResultChecker
         XCODE_EMBED_FRAMEWORKS_CODE_SIGN_ON_COPY YES
-     )
+    )
 endif()
 
 qt_add_qml_module(TicTacToe
