@@ -12,9 +12,7 @@ Item {
     readonly property color backspaceRedColor: "#DE2C2C"
     readonly property int spacing: 5
 
-    property int portraitModeWidth: mainGrid.width
-
-    implicitWidth: portraitModeWidth
+    implicitWidth: mainGrid.width
     implicitHeight: mainGrid.height
 
     property bool lastWasX: false
