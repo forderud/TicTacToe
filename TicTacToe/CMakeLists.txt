@@ -12,6 +12,12 @@ target_link_libraries(TicTacToe PRIVATE
     Qt6::QuickControls2
     ResultChecker
 )
+if (APPLE)
+     set_target_properties(TicTacToe PROPERTIES
+         XCODE_EMBED_FRAMEWORKS ResultChecker
+         XCODE_EMBED_FRAMEWORKS_CODE_SIGN_ON_COPY YES
+     )
+endif()
 
 qt_add_qml_module(TicTacToe
     URI demos.TicTacToe
