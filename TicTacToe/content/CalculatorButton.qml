@@ -3,11 +3,11 @@ import QtQuick.Controls
 
 RoundButton {
     id: button
-    implicitWidth: 38
-    implicitHeight: 38
+    implicitWidth: 90
+    implicitHeight: 90
     radius: buttonRadius
 
-    readonly property int fontSize: 22
+    readonly property int fontSize: 80
     readonly property int buttonRadius: 8
     property color textColor: "#FFFFFF"
     property color accentColor: "#2CDE85"
