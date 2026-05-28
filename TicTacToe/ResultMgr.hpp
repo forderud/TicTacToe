@@ -14,7 +14,7 @@ public:
     ResultMgr();
     ~ResultMgr();
 
-    /** Positive retval means "x" won and negative that "o" have won */
+    /** Positive retval means "X" won and negative that "O" have won */
     Q_INVOKABLE int check(QString cells);
 
 private:

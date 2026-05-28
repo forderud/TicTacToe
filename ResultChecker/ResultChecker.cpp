@@ -13,7 +13,7 @@ static int WinCheck(char item1, char item2, char item3) {
         return 0; // not filled out yet
 
     if ((item1 == item2) && (item1 == item3)) {
-        return item1 == 'x' ? 1 : -1;
+        return item1 == 'X' ? 1 : -1;
     }
 
     return 0;

@@ -23,7 +23,7 @@ Item {
             if (text !== " ")
                 return; // cell already set
 
-            text = lastWasX ? "o" : "x"
+            text = lastWasX ? "O" : "X"
             lastWasX = !lastWasX
             controller.applicationState.checkForWin(mainGrid)
         }
