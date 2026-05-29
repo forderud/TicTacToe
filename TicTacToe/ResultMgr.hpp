@@ -11,11 +11,18 @@ class ResultMgr : public QObject {
     Q_OBJECT
     QML_ELEMENT
 public:
+    enum Status {
+        Ongoing,
+        X_won,
+        O_won,
+        Tie,
+    };
+    Q_ENUM(Status)
+
     ResultMgr();
     ~ResultMgr();
 
-    /** Positive retval means "X" won and negative that "O" have won */
-    Q_INVOKABLE int check(QString cells);
+    Q_INVOKABLE Status check(QString cells);
 
 private:
 #ifdef _WIN32

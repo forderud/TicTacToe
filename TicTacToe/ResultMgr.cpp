@@ -34,11 +34,17 @@ ResultMgr::~ResultMgr() {
     m_func_ptr = nullptr;
 }
 
-int ResultMgr::check(QString cells) {
+ResultMgr::Status ResultMgr::check(QString cells) {
     assert(cells.size() == 9);
     char buffer[9] = {};
     for (int i = 0; i < 9; i++)
         buffer[i] = cells[i].cell();
 
-    return m_func_ptr(buffer);
+    auto val = m_func_ptr(buffer);
+    if (val > 0)
+        return X_won;
+    else if (val < 0)
+        return O_won;
+    else
+        return Ongoing;
 }

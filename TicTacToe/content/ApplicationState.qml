@@ -12,13 +12,13 @@ QtObject {
         // check if someone have won
         let checker = Qt.createQmlObject('ResultMgr {}', this);
         let res = checker.check(state)
-        if (res > 0) {
+        if (res === ResultMgr.X_won) {
             display.displayText(("X won"))
             // reset game
             for (let i = 0; i < 9; i++)
                 grid.children[i].text = " "
 
-        } else if (res < 0) {
+        } else if (res === ResultMgr.O_won) {
             display.displayText(("O won"))
             // reset game
             for (let i = 0; i < 9; i++)
