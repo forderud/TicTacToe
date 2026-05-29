@@ -8,8 +8,6 @@ Item {
 
     required property ApplicationState applicationState
 
-    readonly property color qtGreenColor: "#2CDE85"
-    readonly property color backspaceRedColor: "#DE2C2C"
     readonly property int spacing: 5
 
     implicitWidth: mainGrid.width

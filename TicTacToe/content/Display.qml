@@ -4,9 +4,6 @@ import QtQuick
 
 Item {
     id: display
-    property int fontSize: 22
-    readonly property color backgroundColor: "#262626"
-    readonly property color qtGreenColor: "#2CDE85"
 
     function displayText(message) {
         calculationsListView.text = message
@@ -19,14 +16,14 @@ Item {
     Rectangle {
         anchors.fill: parent
         radius: 8
-        color: display.backgroundColor
+        color: "#262626"
 
         Text {
             id: calculationsListView
             anchors.fill: parent
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            font.pixelSize: display.fontSize
+            font.pixelSize: 22
             color: "white"
         }
     }
