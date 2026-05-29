@@ -26,6 +26,7 @@ Item {
 
     GridLayout {
         id: mainGrid
+        anchors.fill: parent
         columns: 3
         columnSpacing: controller.spacing
         rowSpacing: controller.spacing
