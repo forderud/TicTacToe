@@ -20,6 +20,7 @@ target_link_libraries(TicTacToe PRIVATE
     Qt6::Quick
     Qt6::QuickControls2
     QmlExtras
+    QmlExtrasplugin
     ResultChecker
 )
 if (APPLE)
