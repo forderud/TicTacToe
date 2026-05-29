@@ -3,6 +3,18 @@ import QtQml
 QtObject {
     required property Display display
 
+    property Timer resetTimer: Timer {
+        property var gridRef
+        interval: 1000 // 1 second
+        repeat: false
+
+        onTriggered: {
+            // reset game state
+            for (let i = 0; i < 9; i++)
+                gridRef.children[i].text = " "
+        }
+    }
+
     function checkForWin(grid) {
         // convert game state to a string
         let state = ""
@@ -14,19 +26,16 @@ QtObject {
         let res = checker.check(state)
         if (res === ResultMgr.X_won) {
             display.displayText(("X won"))
-            // reset game
-            for (let i = 0; i < 9; i++)
-                grid.children[i].text = " "
+            resetTimer.gridRef = grid
+            resetTimer.start() // schedule game reset
         } else if (res === ResultMgr.O_won) {
             display.displayText(("O won"))
-            // reset game
-            for (let i = 0; i < 9; i++)
-                grid.children[i].text = " "
+            resetTimer.gridRef = grid
+            resetTimer.start() // schedule game reset
         } else if (res === ResultMgr.Tie) {
             display.displayText(("Tie"))
-            // reset game
-            for (let i = 0; i < 9; i++)
-                grid.children[i].text = " "
+            resetTimer.gridRef = grid
+            resetTimer.start() // schedule game reset
         }
 
         // unload ResultChecker
