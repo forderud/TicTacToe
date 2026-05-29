@@ -4,6 +4,16 @@ qt_add_executable(TicTacToe WIN32 MACOSX_BUNDLE
     ResultMgr.cpp
 )
 
+qt_add_qml_module(TicTacToe
+    URI demos.TicTacToe
+    QML_FILES
+        "Main.qml"
+        "content/ApplicationState.qml"
+        "content/Display.qml"
+        "content/NumberPad.qml"
+        "content/CalculatorButton.qml"
+)
+
 target_link_libraries(TicTacToe PRIVATE
     Qt6::Core
     Qt6::Gui
@@ -26,16 +36,6 @@ if (APPLE)
         )
     endif()
 endif()
-
-qt_add_qml_module(TicTacToe
-    URI demos.TicTacToe
-    QML_FILES
-        "Main.qml"
-        "content/ApplicationState.qml"
-        "content/Display.qml"
-        "content/NumberPad.qml"
-        "content/CalculatorButton.qml"
-)
 
 if(ANDROID)
     set_target_properties(TicTacToe PROPERTIES
