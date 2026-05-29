@@ -59,7 +59,7 @@ endif()
 
 if(APPLE)
     set_target_properties(TicTacToe PROPERTIES
-        OUTPUT_NAME "TicTacToe"
+        OUTPUT_NAME "TicTacTå" # display name
         MACOSX_BUNDLE_BUNDLE_NAME "TicTacToe"
         MACOSX_BUNDLE_GUI_IDENTIFIER "io.qt.TicTacToe"
     )
