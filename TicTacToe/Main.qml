@@ -6,7 +6,7 @@ Window {
     visible: true
     width: 320
     height: 480
-    color: root.backgroundColor
+    color: "#DDDDDD"
 
     ColumnLayout {
         id: root
@@ -18,7 +18,6 @@ Window {
         anchors.bottomMargin: parent.SafeArea.margins.bottom
 
         readonly property int margin: 18
-        readonly property color backgroundColor: "#DDDDDD"
 
         ApplicationState {
             id: appState
