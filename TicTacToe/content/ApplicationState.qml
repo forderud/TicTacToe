@@ -17,9 +17,13 @@ QtObject {
             // reset game
             for (let i = 0; i < 9; i++)
                 grid.children[i].text = " "
-
         } else if (res === ResultMgr.O_won) {
             display.displayText(("O won"))
+            // reset game
+            for (let i = 0; i < 9; i++)
+                grid.children[i].text = " "
+        } else if (res === ResultMgr.Tie) {
+            display.displayText(("Tie"))
             // reset game
             for (let i = 0; i < 9; i++)
                 grid.children[i].text = " "

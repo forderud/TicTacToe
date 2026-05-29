@@ -45,6 +45,15 @@ ResultMgr::Status ResultMgr::check(QString cells) {
         return X_won;
     else if (val < 0)
         return O_won;
-    else
-        return Ongoing;
+
+    // check for tie
+    bool tie = true;
+    for (char cell: buffer) {
+        if (cell == ' ')
+            tie = false; // still an empty cell
+    }
+    if (tie)
+        return Tie;
+
+    return Ongoing;
 }
