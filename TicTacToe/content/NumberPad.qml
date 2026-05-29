@@ -27,29 +27,22 @@ Item {
         }
     }
 
-    Rectangle {
-        id: numberPad
-        anchors.fill: parent
-        radius: 8
-        color: "transparent"
+    GridLayout {
+        id: mainGrid
+        columns: 3
+        columnSpacing: controller.spacing
+        rowSpacing: controller.spacing
 
-        GridLayout {
-            id: mainGrid
-            columns: 3
-            columnSpacing: controller.spacing
-            rowSpacing: controller.spacing
+        PlayField {}
+        PlayField {}
+        PlayField {}
 
-            PlayField {}
-            PlayField {}
-            PlayField {}
+        PlayField {}
+        PlayField {}
+        PlayField {}
 
-            PlayField {}
-            PlayField {}
-            PlayField {}
-
-            PlayField {}
-            PlayField {}
-            PlayField {}
-        }
+        PlayField {}
+        PlayField {}
+        PlayField {}
     }
 }
