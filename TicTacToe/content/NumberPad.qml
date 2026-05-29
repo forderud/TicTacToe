@@ -10,9 +10,6 @@ Item {
 
     readonly property int spacing: 5
 
-    implicitWidth: mainGrid.width
-    implicitHeight: mainGrid.height
-
     property bool lastWasX: false
 
     component PlayField: CalculatorButton {
