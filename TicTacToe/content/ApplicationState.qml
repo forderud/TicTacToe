@@ -9,11 +9,7 @@ QtObject {
         repeat: false
 
         onTriggered: {
-            // reset game state
-            for (let i = 0; i < 9; i++)
-                gridRef.children[i].text = " "
-
-            display.displayText((""))
+            gridRef.reset()
         }
     }
 

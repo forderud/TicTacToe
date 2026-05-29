@@ -33,6 +33,14 @@ Item {
         columnSpacing: controller.spacing
         rowSpacing: controller.spacing
 
+        function reset() {
+            // reset game state
+            for (let i = 0; i < 9; i++)
+                children[i].text = " "
+
+            controller.applicationState.display.displayText((""))
+        }
+
         PlayField {}
         PlayField {}
         PlayField {}
