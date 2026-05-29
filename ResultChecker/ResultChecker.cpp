@@ -2,11 +2,6 @@
 #include <stdio.h>
 #include "ResultChecker.hpp"
 
-#ifndef _WIN32
-  #define EMBED_SAMPLE_LIB_METADATA
-  #include "../LibMetadata.hpp"
-#endif
-
 
 static int WinCheck(char item1, char item2, char item3) {
     if (item1 == ' ')
