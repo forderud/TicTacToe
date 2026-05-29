@@ -6,8 +6,6 @@ Window {
     visible: true
     width: 320
     height: 480
-    minimumWidth: Math.max(numberPad.implicitWidth, calcDisplay.minWidth) + root.margin * 2
-    minimumHeight: calcDisplay.minHeight + numberPad.height + root.margin * 3
     color: root.backgroundColor
 
     ColumnLayout {
