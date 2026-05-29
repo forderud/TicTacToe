@@ -26,9 +26,10 @@ Item {
 
             Text {
                 id: calculationsListView
+                anchors.fill: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
                 font.pixelSize: display.fontSize
-                anchors.right: parent.right
-                anchors.rightMargin: 16
                 color: "white"
             }
         }
