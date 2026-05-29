@@ -20,7 +20,7 @@ Rectangle {
         anchors.fill: parent
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        font.pixelSize: 22
+        font.pixelSize: 60
         color: "white"
     }
 }
