@@ -35,6 +35,9 @@ Window {
 
         NumberPad {
             id: numberPad
+
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             Layout.margins: root.margin
 
             applicationState: appState
