@@ -2,8 +2,10 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 
-Item {
+Rectangle {
     id: display
+    radius: 8
+    color: "#262626"
 
     function displayText(message) {
         calculationsListView.text = message
@@ -13,18 +15,12 @@ Item {
         calculationsListView.text = ""
     }
 
-    Rectangle {
+    Text {
+        id: calculationsListView
         anchors.fill: parent
-        radius: 8
-        color: "#262626"
-
-        Text {
-            id: calculationsListView
-            anchors.fill: parent
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            font.pixelSize: 22
-            color: "white"
-        }
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        font.pixelSize: 22
+        color: "white"
     }
 }
