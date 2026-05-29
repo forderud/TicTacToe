@@ -9,7 +9,6 @@ qt_add_qml_module(TicTacToe
     QML_FILES
         "Main.qml"
         "content/ApplicationState.qml"
-        "content/Display.qml"
         "content/NumberPad.qml"
         "content/CalculatorButton.qml"
 )
@@ -20,6 +19,7 @@ target_link_libraries(TicTacToe PRIVATE
     Qt6::Qml
     Qt6::Quick
     Qt6::QuickControls2
+    QmlExtras
     ResultChecker
 )
 if (APPLE)

@@ -1,4 +1,5 @@
 import QtQml
+import QmlExtras
 
 QtObject {
     required property Display display

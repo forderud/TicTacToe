@@ -14,4 +14,6 @@ qt_standard_project_setup(REQUIRES 6.9)
 
 add_subdirectory(ResultChecker)
 
+add_subdirectory(QmlExtras)
+
 add_subdirectory(TicTacToe)
