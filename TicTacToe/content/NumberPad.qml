@@ -33,27 +33,23 @@ Item {
         radius: 8
         color: "transparent"
 
-        RowLayout {
-            spacing: controller.spacing
+        GridLayout {
+            id: mainGrid
+            columns: 3
+            columnSpacing: controller.spacing
+            rowSpacing: controller.spacing
 
-            GridLayout {
-                id: mainGrid
-                columns: 3
-                columnSpacing: controller.spacing
-                rowSpacing: controller.spacing
+            PlayField {}
+            PlayField {}
+            PlayField {}
 
-                PlayField {}
-                PlayField {}
-                PlayField {}
+            PlayField {}
+            PlayField {}
+            PlayField {}
 
-                PlayField {}
-                PlayField {}
-                PlayField {}
-
-                PlayField {}
-                PlayField {}
-                PlayField {}
-            }
+            PlayField {}
+            PlayField {}
+            PlayField {}
         }
     }
 }
