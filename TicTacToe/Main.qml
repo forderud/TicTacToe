@@ -27,10 +27,7 @@ Window {
 
         Display {
             id: calcDisplay
-            readonly property int minWidth: 210
-            readonly property int minHeight: 60
 
-            Layout.minimumWidth: minWidth
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.margins: root.margin
