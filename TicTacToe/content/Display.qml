@@ -16,22 +16,18 @@ Item {
         calculationsListView.text = ""
     }
 
-    Item {
+    Rectangle {
         anchors.fill: parent
+        radius: 8
+        color: display.backgroundColor
 
-        Rectangle {
+        Text {
+            id: calculationsListView
             anchors.fill: parent
-            radius: 8
-            color: display.backgroundColor
-
-            Text {
-                id: calculationsListView
-                anchors.fill: parent
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                font.pixelSize: display.fontSize
-                color: "white"
-            }
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            font.pixelSize: display.fontSize
+            color: "white"
         }
     }
 }
