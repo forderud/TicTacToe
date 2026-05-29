@@ -31,10 +31,6 @@ Window {
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.margins: root.margin
-
-            // remove the margin on the side that the numberPad is on, to prevent a double margin
-            Layout.bottomMargin: 0
-            Layout.rightMargin: root.margin
         }
 
         NumberPad {
