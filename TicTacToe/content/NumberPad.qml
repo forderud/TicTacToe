@@ -38,7 +38,7 @@ Item {
             for (let i = 0; i < 9; i++)
                 children[i].text = " "
 
-            controller.applicationState.display.displayText((""))
+            controller.applicationState.display.displayText("")
         }
 
         PlayField {}
