@@ -5,7 +5,7 @@ qt_add_executable(TicTacToe WIN32 MACOSX_BUNDLE
 )
 
 qt_add_qml_module(TicTacToe
-    URI demos.TicTacToe
+    URI TicTacToe
     QML_FILES
         "Main.qml"
         "content/ApplicationState.qml"

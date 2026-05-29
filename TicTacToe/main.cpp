@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed,
             &app, []() { QCoreApplication::exit(-1); },
             Qt::QueuedConnection);
-    engine.loadFromModule("demos.TicTacToe", "Main");
+    engine.loadFromModule("TicTacToe", "Main");
 
     return app.exec();
 }
