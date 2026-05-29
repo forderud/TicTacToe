@@ -28,6 +28,7 @@ Window {
         Display {
             id: calcDisplay
 
+            Layout.preferredHeight: 0.3 * parent.height
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.margins: root.margin
@@ -36,6 +37,7 @@ Window {
         NumberPad {
             id: numberPad
 
+            Layout.preferredHeight: 0.7 * parent.height
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.margins: root.margin
