@@ -18,9 +18,11 @@ Item {
             if (text !== " ")
                 return; // cell already set
 
-            text = lastWasX ? "O" : "X"
-            lastWasX = !lastWasX
-            controller.applicationState.checkForWin(mainGrid)
+            if (!applicationState.resetTimer.running) {
+                text = lastWasX ? "O" : "X"
+                lastWasX = !lastWasX
+                controller.applicationState.checkForWin(mainGrid)
+            }
         }
     }
 
