@@ -2,7 +2,7 @@
 #include <QByteArray>
 
 enum class GameState {
-    Ongoing,
+    Ongoing = 0,
     X_won,
     O_won,
     Tie,
@@ -12,4 +12,4 @@ extern "C" // avoid C++ name mangling
 #ifdef _WIN32
   __declspec(dllexport)
 #endif
-int CheckForWin(const QByteArray& cells);
+GameState CheckForWin(const QByteArray& cells);

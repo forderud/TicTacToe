@@ -37,10 +37,8 @@ ResultMgr::~ResultMgr() {
 QVariantList ResultMgr::check(const QByteArray& cells) {
     assert(cells.size() == 9);
     auto val = m_func_ptr(cells);
-    if (val > 0)
-        return {X_won, QByteArray()};
-    else if (val < 0)
-        return {O_won, QByteArray()};
+    if (val != GameState::Ongoing)
+        return {(int)val, QByteArray()};
 
     // check for tie
     bool tie = true;

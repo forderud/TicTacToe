@@ -3,29 +3,29 @@
 #include "ResultChecker.hpp"
 
 
-static int WinCheck(char item1, char item2, char item3) {
+static GameState WinCheck(char item1, char item2, char item3) {
     if (item1 == ' ')
-        return 0; // not filled out yet
+        return GameState::Ongoing; // not filled out yet
 
     if ((item1 == item2) && (item1 == item3)) {
-        return item1 == 'X' ? 1 : -1;
+        return item1 == 'X' ? GameState::X_won : GameState::O_won;
     }
 
-    return 0;
+    return GameState::Ongoing;
 }
 
 extern "C"
 #ifndef _WIN32
   __attribute__ ((visibility ("default")))
 #endif
-int CheckForWin(const QByteArray& cells) {
+GameState CheckForWin(const QByteArray& cells) {
     // check for horizontal win
     for (int row = 0; row < 3; row++) {
         auto item1 = cells[3*row + 0];
         auto item2 = cells[3*row + 1];
         auto item3 = cells[3*row + 2];
-        int win = WinCheck(item1, item2, item3);
-        if (win)
+        auto win = WinCheck(item1, item2, item3);
+        if (win != GameState::Ongoing)
             return win;
     }
 
@@ -34,8 +34,8 @@ int CheckForWin(const QByteArray& cells) {
         auto item1 = cells[3*0 + col];
         auto item2 = cells[3*1 + col];
         auto item3 = cells[3*2 + col];
-        int win = WinCheck(item1, item2, item3);
-        if (win)
+        auto win = WinCheck(item1, item2, item3);
+        if (win != GameState::Ongoing)
             return win;
     }
 
@@ -44,20 +44,20 @@ int CheckForWin(const QByteArray& cells) {
         auto item1 = cells[3*0 + 0];
         auto item2 = cells[3*1 + 1];
         auto item3 = cells[3*2 + 2];
-        int win = WinCheck(item1, item2, item3);
-        if (win)
+        auto win = WinCheck(item1, item2, item3);
+        if (win != GameState::Ongoing)
             return win;
     }
     {
         auto item1 = cells[3*0 + 2];
         auto item2 = cells[3*1 + 1];
         auto item3 = cells[3*2 + 0];
-        int win = WinCheck(item1, item2, item3);
-        if (win)
+        auto win = WinCheck(item1, item2, item3);
+        if (win != GameState::Ongoing)
             return win;
     }
 
-    return 0;
+    return GameState::Ongoing;
 }
 
 
