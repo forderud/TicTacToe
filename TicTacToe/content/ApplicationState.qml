@@ -25,10 +25,22 @@ QtObject {
         let state = checker.check(cells)
         if (state === ResultMgr.X_won) {
             display.displayText("X won")
+
+            let mask = new Uint8Array(checker.mask());
+            for (let i = 0; i < 9; i++)
+                if (mask[i] !== 0)
+                    grid.children[i].background.color = "red"
+
             resetTimer.gridRef = grid
             resetTimer.start() // schedule game reset
         } else if (state === ResultMgr.O_won) {
             display.displayText("O won")
+
+            let mask = new Uint8Array(checker.mask());
+            for (let i = 0; i < 9; i++)
+                if (mask[i] !== 0)
+                    grid.children[i].background.color = "red"
+
             resetTimer.gridRef = grid
             resetTimer.start() // schedule game reset
         } else if (state === ResultMgr.Tie) {

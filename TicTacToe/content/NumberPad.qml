@@ -35,8 +35,10 @@ Item {
 
         function reset() {
             // reset game state
-            for (let i = 0; i < 9; i++)
+            for (let i = 0; i < 9; i++) {
                 children[i].text = " "
+                children[i].background.color = "black"
+            }
 
             controller.applicationState.display.displayText("")
         }
