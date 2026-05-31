@@ -22,16 +22,16 @@ QtObject {
 
         // check if someone have won
         let checker = Qt.createQmlObject('ResultMgr {}', this);
-        let res = checker.check(cells)
-        if (res.state === ResultMgr.X_won) {
+        let state = checker.check(cells)
+        if (state === ResultMgr.X_won) {
             display.displayText("X won")
             resetTimer.gridRef = grid
             resetTimer.start() // schedule game reset
-        } else if (res.state === ResultMgr.O_won) {
+        } else if (state === ResultMgr.O_won) {
             display.displayText("O won")
             resetTimer.gridRef = grid
             resetTimer.start() // schedule game reset
-        } else if (res.state === ResultMgr.Tie) {
+        } else if (state === ResultMgr.Tie) {
             display.displayText("Tie")
             resetTimer.gridRef = grid
             resetTimer.start() // schedule game reset

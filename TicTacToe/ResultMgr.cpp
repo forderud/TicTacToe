@@ -34,14 +34,10 @@ ResultMgr::~ResultMgr() {
     m_func_ptr = nullptr;
 }
 
-QVariantMap ResultMgr::check(const QByteArray& cells) {
+ResultMgr::State ResultMgr::check(const QByteArray& cells) {
     assert(cells.size() == 9);
     auto val = m_func_ptr(cells, /*out*/m_mask);
-
-    QVariantMap result;
-    result["state"] = (int)val;
-    result["mask"] = QVariant(m_mask);
-    return result;
+    return (State)val;
 }
 
 QByteArray ResultMgr::mask() {

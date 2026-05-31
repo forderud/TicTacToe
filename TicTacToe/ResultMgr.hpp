@@ -23,7 +23,7 @@ public:
     ~ResultMgr();
 
     // returns a (Status, win-mask) tuple
-    Q_INVOKABLE QVariantMap check(const QByteArray& cells);
+    Q_INVOKABLE State check(const QByteArray& cells);
 
     Q_INVOKABLE QByteArray mask();
 private:
