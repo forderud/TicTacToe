@@ -18,7 +18,7 @@ extern "C"
 #ifndef _WIN32
   __attribute__ ((visibility ("default")))
 #endif
-int CheckForWin(char cells[9]) {
+int CheckForWin(const char cells[9]) {
     // check for horizontal win
     for (int row = 0; row < 3; row++) {
         auto item1 = cells[3*row + 0];
