@@ -22,7 +22,7 @@ public:
     ResultMgr();
     ~ResultMgr();
 
-    Q_INVOKABLE Status check(QString cells);
+    Q_INVOKABLE Status check(QByteArray cells);
 
 private:
 #ifdef _WIN32
