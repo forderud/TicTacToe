@@ -36,11 +36,7 @@ ResultMgr::~ResultMgr() {
 
 ResultMgr::Status ResultMgr::check(const QByteArray& cells) {
     assert(cells.size() == 9);
-    char buffer[9] = {};
-    for (int i = 0; i < 9; i++)
-        buffer[i] = cells[i];
-
-    auto val = m_func_ptr(buffer);
+    auto val = m_func_ptr(cells);
     if (val > 0)
         return X_won;
     else if (val < 0)
@@ -48,7 +44,7 @@ ResultMgr::Status ResultMgr::check(const QByteArray& cells) {
 
     // check for tie
     bool tie = true;
-    for (char cell: buffer) {
+    for (char cell: cells) {
         if (cell == ' ')
             tie = false; // still an empty cell
     }
