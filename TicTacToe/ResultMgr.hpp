@@ -12,10 +12,10 @@ class ResultMgr : public QObject {
     QML_ELEMENT
 public:
     enum Status {
-        Ongoing,
-        X_won,
-        O_won,
-        Tie,
+        Ongoing = GameState::Ongoing,
+        X_won = GameState::X_won,
+        O_won = GameState::O_won,
+        Tie = GameState::Tie,
     };
     Q_ENUM(Status)
 
