@@ -2,25 +2,18 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 
-Rectangle {
+Text {
     id: display
-    radius: 8
-    color: "#262626"
+    horizontalAlignment: Text.AlignHCenter
+    verticalAlignment: Text.AlignVCenter
+    font.pixelSize: 60
+    color: "black"
 
     function displayText(message) {
-        calculationsListView.text = message
+        display.text = message
     }
 
     function allClear() {
-        calculationsListView.text = ""
-    }
-
-    Text {
-        id: calculationsListView
-        anchors.fill: parent
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        font.pixelSize: 60
-        color: "white"
+        display.text = ""
     }
 }
