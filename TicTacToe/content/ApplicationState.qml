@@ -45,6 +45,10 @@ QtObject {
             resetTimer.start() // schedule game reset
         } else if (state === ResultMgr.Tie) {
             display.displayText("Tie")
+
+            for (let i = 0; i < 9; i++)
+                grid.children[i].background.color = "green"
+
             resetTimer.gridRef = grid
             resetTimer.start() // schedule game reset
         }
