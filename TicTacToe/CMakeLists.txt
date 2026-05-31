@@ -66,8 +66,8 @@ endif()
 if(APPLE)
     set_target_properties(TicTacToe PROPERTIES
         OUTPUT_NAME "TicTacTå" # display name
-        MACOSX_BUNDLE_BUNDLE_NAME "forderud.TicTacToe"
-        MACOSX_BUNDLE_GUI_IDENTIFIER "TicTacToe"
+        MACOSX_BUNDLE_BUNDLE_NAME "TicTacToe"
+        MACOSX_BUNDLE_GUI_IDENTIFIER "forderud.TicTacToe"
     )
     if(IOS)
         set(asset_catalog_path "ios/Assets.xcassets")
