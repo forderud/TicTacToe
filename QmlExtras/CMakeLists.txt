@@ -1,4 +1,8 @@
-qt_add_library(QmlExtras STATIC)
+if(QML_EXTRAS_SHARED)
+    qt_add_library(QmlExtras SHARED)
+else()
+    qt_add_library(QmlExtras STATIC)
+endif()
 
 qt_add_qml_module(QmlExtras
     URI QmlExtras

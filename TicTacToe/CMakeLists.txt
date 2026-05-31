@@ -20,9 +20,14 @@ target_link_libraries(TicTacToe PRIVATE
     Qt6::Quick
     Qt6::QuickControls2
     QmlExtras
-    QmlExtrasplugin # needed if QmlExtras is built as static lib
     ResultChecker
 )
+if(NOT QML_EXTRAS_SHARED)
+    target_link_libraries(TicTacToe PRIVATE
+        QmlExtrasplugin # needed if QmlExtras is built as static lib
+    )
+endif()
+
 if (APPLE)
     set_target_properties(TicTacToe PROPERTIES
         # Embed framework(s) into .app bundle
