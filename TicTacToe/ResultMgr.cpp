@@ -36,6 +36,8 @@ ResultMgr::~ResultMgr() {
 
 ResultMgr::State ResultMgr::check(const QByteArray& cells) {
     assert(cells.size() == 9);
+    m_mask.fill('\0');
+
     auto val = m_func_ptr(cells, /*out*/m_mask);
     return (State)val;
 }
