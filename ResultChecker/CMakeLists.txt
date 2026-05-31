@@ -5,6 +5,10 @@ add_library(ResultChecker SHARED
   ResultChecker.hpp
 )
 
+target_link_libraries(ResultChecker PRIVATE
+    Qt6::Core
+)
+
 if (APPLE)
   # package shared lib as a framework
   set_target_properties(ResultChecker PROPERTIES
