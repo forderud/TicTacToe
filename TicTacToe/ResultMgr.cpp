@@ -38,5 +38,9 @@ QVariantList ResultMgr::check(const QByteArray& cells) {
     assert(cells.size() == 9);
     QByteArray mask(9, '\0');
     auto val = m_func_ptr(cells, /*out*/mask);
-    return {(int)val, mask};
+
+    QVariantList result;
+    result << (int)val;
+    result << mask;
+    return result;
 }
