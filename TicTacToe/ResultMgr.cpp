@@ -43,3 +43,7 @@ QVariantMap ResultMgr::check(const QByteArray& cells) {
     result["mask"] = QVariant(m_mask);
     return result;
 }
+
+QByteArray ResultMgr::mask() {
+    return m_mask;
+}

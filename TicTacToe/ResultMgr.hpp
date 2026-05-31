@@ -25,6 +25,7 @@ public:
     // returns a (Status, win-mask) tuple
     Q_INVOKABLE QVariantMap check(const QByteArray& cells);
 
+    Q_INVOKABLE QByteArray mask();
 private:
 #ifdef _WIN32
     HMODULE m_lib = nullptr;
