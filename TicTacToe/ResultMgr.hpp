@@ -32,4 +32,6 @@ private:
     void*   m_lib = nullptr;
 #endif
     decltype(&CheckForWin) m_func_ptr = nullptr;
+
+    QByteArray m_mask;
 };
