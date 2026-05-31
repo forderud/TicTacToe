@@ -25,8 +25,12 @@ GameState CheckForWin(const QByteArray& cells, QByteArray& mask) {
         auto item2 = cells[3*row + 1];
         auto item3 = cells[3*row + 2];
         auto win = WinCheck(item1, item2, item3);
-        if (win != GameState::Ongoing)
+        if (win != GameState::Ongoing) {
+            mask[3*row + 0] = 1;
+            mask[3*row + 1] = 1;
+            mask[3*row + 2] = 1;
             return win;
+        }
     }
 
     // check for vertical win
@@ -35,8 +39,12 @@ GameState CheckForWin(const QByteArray& cells, QByteArray& mask) {
         auto item2 = cells[3*1 + col];
         auto item3 = cells[3*2 + col];
         auto win = WinCheck(item1, item2, item3);
-        if (win != GameState::Ongoing)
+        if (win != GameState::Ongoing) {
+            mask[3*0 + col] = 1;
+            mask[3*1 + col] = 1;
+            mask[3*2 + col] = 1;
             return win;
+        }
     }
 
     // check for diagonal win
@@ -45,16 +53,24 @@ GameState CheckForWin(const QByteArray& cells, QByteArray& mask) {
         auto item2 = cells[3*1 + 1];
         auto item3 = cells[3*2 + 2];
         auto win = WinCheck(item1, item2, item3);
-        if (win != GameState::Ongoing)
+        if (win != GameState::Ongoing) {
+            mask[3*0 + 0] = 1;
+            mask[3*1 + 1] = 1;
+            mask[3*2 + 2] = 1;
             return win;
+        }
     }
     {
         auto item1 = cells[3*0 + 2];
         auto item2 = cells[3*1 + 1];
         auto item3 = cells[3*2 + 0];
         auto win = WinCheck(item1, item2, item3);
-        if (win != GameState::Ongoing)
+        if (win != GameState::Ongoing) {
+            mask[3*0 + 2] = 1;
+            mask[3*1 + 1] = 1;
+            mask[3*2 + 0] = 1;
             return win;
+        }
     }
 
     // check for tie
