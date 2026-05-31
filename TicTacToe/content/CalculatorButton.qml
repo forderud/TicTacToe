@@ -7,7 +7,7 @@ RoundButton {
     implicitHeight: 0.3 * parent.height
     radius: buttonRadius
 
-    readonly property int fontSize: 100
+    readonly property int fontSize: 120
     readonly property int buttonRadius: 8
 
     background: Rectangle {
