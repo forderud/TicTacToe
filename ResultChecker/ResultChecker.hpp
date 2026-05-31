@@ -12,4 +12,4 @@ extern "C" // avoid C++ name mangling
 #ifdef _WIN32
   __declspec(dllexport)
 #endif
-GameState CheckForWin(const QByteArray& cells);
+GameState CheckForWin(const QByteArray& cells, QByteArray& mask);

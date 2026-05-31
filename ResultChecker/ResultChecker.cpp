@@ -18,7 +18,7 @@ extern "C"
 #ifndef _WIN32
   __attribute__ ((visibility ("default")))
 #endif
-GameState CheckForWin(const QByteArray& cells) {
+GameState CheckForWin(const QByteArray& cells, QByteArray& mask) {
     // check for horizontal win
     for (int row = 0; row < 3; row++) {
         auto item1 = cells[3*row + 0];
