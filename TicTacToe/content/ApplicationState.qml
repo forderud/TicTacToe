@@ -16,13 +16,13 @@ QtObject {
 
     function checkForWin(grid) {
         // convert game state to a string
-        let state = ""
+        let cells = ""
         for (let i = 0; i < 9; i++)
-            state += grid.children[i].text
+            cells += grid.children[i].text
 
         // check if someone have won
         let checker = Qt.createQmlObject('ResultMgr {}', this);
-        let res = checker.check(state)
+        let res = checker.check(cells)
         if (res.state === ResultMgr.X_won) {
             display.displayText("X won")
             resetTimer.gridRef = grid
