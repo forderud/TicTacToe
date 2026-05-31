@@ -2,7 +2,7 @@
 
 _Last updated: May 22, 2026_
 
-This Privacy Policy describes how the **QtPluginApp** application ("the App") handles information when you use it.
+This Privacy Policy describes how the **TicTacToe** application ("the App") handles information when you use it.
 
 ## Information We Collect
 
