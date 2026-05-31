@@ -46,7 +46,7 @@ Item {
                 children[i].background.color = "black"
             }
 
-            controller.applicationState.display.displayText("")
+            controller.applicationState.display.displayText(controller.lastWasX ? "O starts" : "X starts")
         }
 
         PlayField {}
