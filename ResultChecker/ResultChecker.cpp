@@ -57,6 +57,15 @@ GameState CheckForWin(const QByteArray& cells) {
             return win;
     }
 
+    // check for tie
+    bool tie = true;
+    for (char cell: cells) {
+        if (cell == ' ')
+            tie = false; // still an empty cell
+    }
+    if (tie)
+        return GameState::Tie;
+
     return GameState::Ongoing;
 }
 
