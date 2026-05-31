@@ -22,7 +22,7 @@ public:
     ResultMgr();
     ~ResultMgr();
 
-    Q_INVOKABLE Status check(QByteArray cells);
+    Q_INVOKABLE Status check(const QByteArray& cells);
 
 private:
 #ifdef _WIN32

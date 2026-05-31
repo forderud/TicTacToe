@@ -34,7 +34,7 @@ ResultMgr::~ResultMgr() {
     m_func_ptr = nullptr;
 }
 
-ResultMgr::Status ResultMgr::check(QByteArray cells) {
+ResultMgr::Status ResultMgr::check(const QByteArray& cells) {
     assert(cells.size() == 9);
     char buffer[9] = {};
     for (int i = 0; i < 9; i++)
