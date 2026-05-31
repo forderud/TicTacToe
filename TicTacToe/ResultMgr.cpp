@@ -41,6 +41,6 @@ QVariantMap ResultMgr::check(const QByteArray& cells) {
 
     QVariantMap result;
     result["state"] = (int)val;
-    result["mask"] = QVariant(mask);
+    result["mask"] = QVariant(std::move(mask));
     return result;
 }
