@@ -34,13 +34,13 @@ ResultMgr::~ResultMgr() {
     m_func_ptr = nullptr;
 }
 
-ResultMgr::Status ResultMgr::check(const QByteArray& cells) {
+QVariantList ResultMgr::check(const QByteArray& cells) {
     assert(cells.size() == 9);
     auto val = m_func_ptr(cells);
     if (val > 0)
-        return X_won;
+        return {X_won, QByteArray()};
     else if (val < 0)
-        return O_won;
+        return {O_won, QByteArray()};
 
     // check for tie
     bool tie = true;
@@ -49,7 +49,7 @@ ResultMgr::Status ResultMgr::check(const QByteArray& cells) {
             tie = false; // still an empty cell
     }
     if (tie)
-        return Tie;
+        return {Tie, QByteArray()};
 
-    return Ongoing;
+    return {Ongoing, QByteArray()};
 }

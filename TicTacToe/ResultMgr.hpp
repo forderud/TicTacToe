@@ -22,7 +22,8 @@ public:
     ResultMgr();
     ~ResultMgr();
 
-    Q_INVOKABLE Status check(const QByteArray& cells);
+    // returns a (Status, win-mask) tuple
+    Q_INVOKABLE QVariantList check(const QByteArray& cells);
 
 private:
 #ifdef _WIN32
