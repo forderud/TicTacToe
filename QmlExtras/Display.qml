@@ -10,8 +10,4 @@ Text {
     function displayText(message) {
         display.text = message
     }
-
-    function allClear() {
-        display.text = ""
-    }
 }
