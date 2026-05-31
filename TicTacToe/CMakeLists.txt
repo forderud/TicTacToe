@@ -46,7 +46,7 @@ endif()
 if(ANDROID)
     set_target_properties(TicTacToe PROPERTIES
         QT_ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android"
-        QT_ANDROID_PACKAGE_NAME "io.qt.TicTacToe"
+        QT_ANDROID_PACKAGE_NAME "TicTacToe"
         QT_ANDROID_TARGET_SDK_VERSION 34
         QT_ANDROID_VERSION_CODE 10
         QT_ANDROID_VERSION_NAME "1.0"
@@ -67,7 +67,7 @@ if(APPLE)
     set_target_properties(TicTacToe PROPERTIES
         OUTPUT_NAME "TicTacTå" # display name
         MACOSX_BUNDLE_BUNDLE_NAME "TicTacToe"
-        MACOSX_BUNDLE_GUI_IDENTIFIER "io.qt.TicTacToe"
+        MACOSX_BUNDLE_GUI_IDENTIFIER "TicTacToe"
     )
     if(IOS)
         set(asset_catalog_path "ios/Assets.xcassets")
