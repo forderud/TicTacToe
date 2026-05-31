@@ -12,6 +12,10 @@ Item {
 
     property bool lastWasX: false
 
+    Component.onCompleted: {
+        controller.applicationState.display.displayText("X starts")
+    }
+
     component PlayField: CalculatorButton {
         text: " "
         onClicked: {
@@ -19,6 +23,8 @@ Item {
                 return; // cell already set
 
             if (!applicationState.resetTimer.running) {
+                controller.applicationState.display.displayText("")
+
                 text = lastWasX ? "O" : "X"
                 lastWasX = !lastWasX
                 controller.applicationState.checkForWin(mainGrid)
