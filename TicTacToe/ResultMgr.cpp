@@ -1,7 +1,13 @@
 #include "ResultMgr.hpp"
 #include <ResultChecker/ResultChecker.hpp>
 #ifndef _WIN32
-  #include <dlfcn.h>
+    #include <dlfcn.h>
+#endif
+#ifdef __APPLE__
+    #include "../ParseMach.hpp"
+#endif
+#ifdef __ANDROID__
+    #include "../ParseElf.hpp"
 #endif
 
 
