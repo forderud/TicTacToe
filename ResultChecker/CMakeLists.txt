@@ -1,7 +1,5 @@
 # Example to showcase run-time loading of shared libraries on mobile platforms
 
-include(CMakePackageConfigHelpers)
-
 add_library(ResultChecker SHARED
   ResultChecker.cpp
   ResultChecker.hpp
@@ -37,28 +35,3 @@ endif()
 if(ANDROID)
     target_link_libraries(ResultChecker PRIVATE log)
 endif()
-
-# install rules
-install(
-    TARGETS ResultChecker
-    EXPORT ResultCheckerTargets
-    DESTINATION .
-    FRAMEWORK DESTINATION .
-)
-install(
-    EXPORT ResultCheckerTargets
-    DESTINATION cmake
-    NAMESPACE ResultChecker::
-)
-
-write_basic_package_version_file(
-    ${CMAKE_CURRENT_BINARY_DIR}/ResultCheckerConfigVersion.cmake
-    VERSION 1.0.0
-    COMPATIBILITY SameMinorVersion
-)
-install(
-    FILES
-        ResultCheckerConfig.cmake
-        ${CMAKE_CURRENT_BINARY_DIR}/ResultCheckerConfigVersion.cmake
-    DESTINATION cmake
-)
