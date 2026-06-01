@@ -2,6 +2,12 @@
 #include <stdio.h>
 #include "ResultChecker.hpp"
 
+#ifndef _WIN32
+    // embed metadata
+    #define EMBED_SAMPLE_LIB_METADATA
+    #include "../LibMetadata.hpp"
+#endif
+
 
 static GameState WinCheck(char item1, char item2, char item3) {
     if (item1 == ' ')
