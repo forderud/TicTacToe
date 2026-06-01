@@ -1,4 +1,6 @@
 #include "ResultMgr.hpp"
+#include <QCoreApplication>
+#include <QDir>
 #include <ResultChecker/ResultChecker.hpp>
 #include <filesystem>
 #ifndef _WIN32
@@ -61,6 +63,27 @@ static std::string GetNativeLibraryDir(ANativeActivity& activity) {
     return result;
 }
 #endif
+
+static QString GetSharedLibFolder() {
+    QString exePath = QCoreApplication::applicationDirPath();
+#ifdef __APPLE__
+  #if TARGET_OS_IPHONE
+    // iOS: @executable_path/Frameworks)
+    QDir libDir(exePath);
+    libDir.cd("Frameworks");
+    return libDir.absolutePath();
+  #else
+    // macOS: @executable_path/../Frameworks
+    QDir libDir(exePath);
+    libDir.cd("..");
+    libDir.cd("Frameworks");
+    return libDir.absolutePath();
+  #endif
+#else
+    // Linux, Android, Windows: @executable_path
+    return exePath;
+#endif
+}
 
 
 ResultMgr::ResultMgr() : m_mask(9, '\0') {
