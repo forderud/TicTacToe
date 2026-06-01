@@ -1,3 +1,5 @@
+# Example to showcase moving of QML components to a separate shared/static library
+
 if(QML_EXTRAS_SHARED)
     qt_add_library(QmlExtras SHARED)
 else()

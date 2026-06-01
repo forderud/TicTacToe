@@ -1,3 +1,5 @@
+# Example to showcase run-time loading of shared libraries on mobile platforms
+
 include(CMakePackageConfigHelpers)
 
 add_library(ResultChecker SHARED
