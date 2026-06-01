@@ -6,23 +6,27 @@
 #ifndef _WIN32
     #include <dlfcn.h>
 #endif
+#include "../FileMap.hpp"
 #ifdef __APPLE__
     #include "../ParseMach.hpp"
 #endif
 #ifdef __ANDROID__
     #include "../ParseElf.hpp"
 #endif
+#include "../LibMetadata.hpp"
 
 
-#ifdef __APPLE__
 /** Get path to dylib inside framework */
 static std::string DylibPath(std::filesystem::path frameworkPath, bool fullPath) {
+#ifdef __APPLE__
     std::string path = fullPath ? frameworkPath : frameworkPath.filename();
     path += "/";
     path += frameworkPath.stem(); // filename without extension
     return path;
-}
+#else
+    return fullPath ? frameworkPath : frameworkPath.filename();
 #endif
+}
 
 static QString GetSharedLibFolder() {
     QString exePath = QCoreApplication::applicationDirPath();
@@ -44,6 +48,27 @@ static QString GetSharedLibFolder() {
     return exePath;
 #endif
 }
+
+std::string GetResultCheckerPath() {
+    std::string libsDir = GetSharedLibFolder().toStdString();
+    printf("Libs dir: %s\n", libsDir.c_str());
+
+    for (const auto& entry : std::filesystem::directory_iterator(libsDir)) {
+        printf("\n## %s\n", entry.path().filename().c_str());
+
+        std::string path = DylibPath(entry.path(), true); // keep path prefix
+        FileMap file(path.c_str());
+        std::string_view data = FindSegmentInFile(file.ptr(), LibMetadata_SYMBOL_NAME);
+        if (data.empty())
+            continue;
+
+        // found a compatible library
+        return DylibPath(entry.path(), false); // remove path prefix
+    }
+
+    abort(); // not found
+}
+
 
 
 ResultMgr::ResultMgr() : m_mask(9, '\0') {
