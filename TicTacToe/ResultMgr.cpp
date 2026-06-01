@@ -8,6 +8,7 @@
 ResultMgr::ResultMgr() : m_mask(9, '\0') {
     printf("ResultChecker loaded.\n");
 
+    // load ResultChecker library
 #ifdef _WIN32
     m_lib = LoadLibraryW(L"ResultChecker.dll");
     m_func_ptr = (decltype(&CheckForWin))GetProcAddress(m_lib, "CheckForWin");
@@ -24,6 +25,7 @@ ResultMgr::ResultMgr() : m_mask(9, '\0') {
 ResultMgr::~ResultMgr() {
     printf("ResultChecker unloaded.\n");
 
+    // unload ResultChecker library
 #ifdef _WIN32
     FreeLibrary(m_lib);
     m_lib = nullptr;

@@ -7,6 +7,8 @@
 #endif
 
 
+/** Wrapper for dynamically load the ResultChecker library.
+ *  This is done to showcase loading of shared libraries at run-time on mobile platforms. */
 class ResultMgr : public QObject {
     Q_OBJECT
     QML_ELEMENT
