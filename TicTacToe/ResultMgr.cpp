@@ -7,60 +7,20 @@
     #include <dlfcn.h>
 #endif
 #ifdef __APPLE__
-    #include <CoreFoundation/CFBundle.h>
     #include "../ParseMach.hpp"
 #endif
 #ifdef __ANDROID__
-    #include <android/native_activity.h>
     #include "../ParseElf.hpp"
 #endif
 
 
 #ifdef __APPLE__
-static std::string GetBundleFrameworksDir() {
-    CFBundleRef mainBundle = CFBundleGetMainBundle();
-    CFURLRef url = CFBundleCopyPrivateFrameworksURL(mainBundle);
-    char path[PATH_MAX] {};
-    if (CFURLGetFileSystemRepresentation(url, true, (UInt8*)path, sizeof(path))) {
-        CFRelease(url);
-        return path;
-    }
-    CFRelease(url);
-    abort();
-}
-
 /** Get path to dylib inside framework */
 static std::string DylibPath(std::filesystem::path frameworkPath, bool fullPath) {
     std::string path = fullPath ? frameworkPath : frameworkPath.filename();
     path += "/";
     path += frameworkPath.stem(); // filename without extension
     return path;
-}
-#endif
-
-#ifdef __ANDROID__
-static std::string GetNativeLibraryDir(ANativeActivity& activity) {
-    JNIEnv* env = nullptr;
-    activity.vm->AttachCurrentThread(&env, nullptr);
-    std::string result;
-    {
-        // get ApplicationInfo object
-        // DOC: https://developer.android.com/reference/android/content/pm/ApplicationInfo
-        jclass actCls = env->GetObjectClass(activity.clazz);
-        jmethodID getAppInfo = env->GetMethodID(actCls, "getApplicationInfo", "()Landroid/content/pm/ApplicationInfo;");
-        jobject appInfo = env->CallObjectMethod(activity.clazz, getAppInfo);
-
-        // access nativeLibraryDir field
-        jclass aiCls = env->GetObjectClass(appInfo);
-        jfieldID fid = env->GetFieldID(aiCls, "nativeLibraryDir", "Ljava/lang/String;");
-        auto jstr = (jstring)env->GetObjectField(appInfo, fid);
-
-        const char* buffer = env->GetStringUTFChars(jstr, nullptr);
-        result = buffer;
-        env->ReleaseStringUTFChars(jstr, buffer);
-    }
-    activity.vm->DetachCurrentThread();
-    return result;
 }
 #endif
 
