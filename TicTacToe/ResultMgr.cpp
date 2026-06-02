@@ -49,13 +49,12 @@ static QString GetSharedLibFolder() {
 #endif
 }
 
-std::string GetResultCheckerPath() {
+std::string ResultCheckerSearch() {
     std::string libsDir = GetSharedLibFolder().toStdString();
+    //printf("Libs dir: %s\n", libsDir.c_str());
 
-#if 0
     for (const auto& entry : std::filesystem::directory_iterator(libsDir)) {
-        printf("\n## %s\n", entry.path().filename().c_str());
-
+        //printf("\n## %s\n", entry.path().filename().c_str());
         std::string path = DylibPath(entry.path(), true); // keep path prefix
         FileMap file(path.c_str());
         std::string_view data = FindSegmentInFile(file.ptr(), LibMetadata_SYMBOL_NAME);
@@ -67,19 +66,22 @@ std::string GetResultCheckerPath() {
     }
 
     abort(); // not found
-#else
-    printf("Libs dir: %s\n", libsDir.c_str());
+}
 
+std::string GetResultCheckerPath() {
   #ifdef _WIN32
     return "ResultChecker.dll"; // Windows
   #else
     #ifdef __APPLE__
+      #if TARGET_OS_IPHONE
+        return ResultCheckerSearch();
+      #else
         return "ResultChecker.framework/ResultChecker"; // macOS, iOS
+      #endif
     #else
         return "libResultChecker.so"; // Linux, Android
     #endif
   #endif
-#endif
 }
 
 
