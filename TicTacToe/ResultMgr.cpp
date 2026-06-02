@@ -51,8 +51,8 @@ static QString GetSharedLibFolder() {
 
 std::string GetResultCheckerPath() {
     std::string libsDir = GetSharedLibFolder().toStdString();
-    printf("Libs dir: %s\n", libsDir.c_str());
 
+#if 0
     for (const auto& entry : std::filesystem::directory_iterator(libsDir)) {
         printf("\n## %s\n", entry.path().filename().c_str());
 
@@ -67,23 +67,33 @@ std::string GetResultCheckerPath() {
     }
 
     abort(); // not found
+#else
+    printf("Libs dir: %s\n", libsDir.c_str());
+
+  #ifdef _WIN32
+    return "ResultChecker.dll"; // Windows
+  #else
+    #ifdef __APPLE__
+        return "ResultChecker.framework/ResultChecker"; // macOS, iOS
+    #else
+        return "libResultChecker.so"; // Linux, Android
+    #endif
+  #endif
+#endif
 }
 
 
 
 ResultMgr::ResultMgr() : m_mask(9, '\0') {
     printf("ResultChecker loaded.\n");
+    std::string resultCheckerPath = GetResultCheckerPath();
 
     // load ResultChecker library
 #ifdef _WIN32
-    m_lib = LoadLibraryW(L"ResultChecker.dll");
+    m_lib = LoadLibraryA(resultCheckerPath.c_str());
     m_func_ptr = (decltype(&CheckForWin))GetProcAddress(m_lib, "CheckForWin");
 #else
-  #ifdef __APPLE__
-    m_lib = dlopen("ResultChecker.framework/ResultChecker", RTLD_LAZY); // macOS, iOS
-  #else
-    m_lib = dlopen("libResultChecker.so", RTLD_LAZY); // Linux, Android
-  #endif
+    m_lib = dlopen(resultCheckerPath.c_str(), RTLD_LAZY); // macOS, iOS, Linux, Android
     m_func_ptr = (decltype(&CheckForWin))dlsym(m_lib, "CheckForWin");
 #endif
 }
