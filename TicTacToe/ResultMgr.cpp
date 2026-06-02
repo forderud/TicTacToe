@@ -65,6 +65,10 @@ std::string ResultCheckerSearch() {
         if (data.size() != sizeof(LibMetadataT))
             continue;
 
+        auto* metadata = (const LibMetadataT*)(data.data());
+        if (!metadata->IsValid())
+            continue;
+
         // found a compatible library
         return DylibPath(entry.path(), false); // remove path prefix
     }
