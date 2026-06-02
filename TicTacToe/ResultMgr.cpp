@@ -57,7 +57,11 @@ std::string ResultCheckerSearch() {
         //printf("\n## %s\n", entry.path().filename().c_str());
         std::string path = DylibPath(entry.path(), true); // keep path prefix
         FileMap file(path.c_str());
-        std::string_view data = FindSegmentInFile(file.ptr(), LibMetadata_SYMBOL_NAME);
+#ifdef __APPLE__
+        std::string_view data = FindSegmentInFile(file.ptr(), LibMetadata_SYMBOL_NAME); // macOS, iOS
+#else
+        std::string_view data = FindDataSectionInFile(file.ptr(), LibMetadata_SYMBOL_NAME); // Android, Linux
+#endif
         if (data.empty())
             continue;
 
@@ -79,7 +83,11 @@ std::string GetResultCheckerPath() {
         return "ResultChecker.framework/ResultChecker"; // macOS, iOS
       #endif
     #else
-        return "libResultChecker.so"; // Linux, Android
+      #ifdef __ANDROID__
+        return ResultCheckerSearch(); // Android
+      #else
+        return "libResultChecker.so"; // Linux
+      #endif
     #endif
   #endif
 }
