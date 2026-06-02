@@ -62,7 +62,7 @@ std::string ResultCheckerSearch() {
 #else
         std::string_view data = FindDataSectionInFile(file.ptr(), LibMetadata_SYMBOL_NAME); // Android, Linux
 #endif
-        if (data.empty())
+        if (data.size() != sizeof(LibMetadataT))
             continue;
 
         // found a compatible library
