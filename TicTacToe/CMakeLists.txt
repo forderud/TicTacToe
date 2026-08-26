@@ -33,6 +33,9 @@ if (APPLE)
         # Embed framework(s) into .app bundle
         XCODE_EMBED_FRAMEWORKS ResultChecker
         XCODE_EMBED_FRAMEWORKS_CODE_SIGN_ON_COPY YES
+
+        # Embed Swift standard libraries
+        XCODE_ATTRIBUTE_ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES "YES"
     )
 
     if(IOS)
