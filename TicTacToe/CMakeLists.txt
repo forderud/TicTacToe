@@ -34,6 +34,9 @@ if (APPLE)
         XCODE_EMBED_FRAMEWORKS ResultChecker
         XCODE_EMBED_FRAMEWORKS_CODE_SIGN_ON_COPY YES
 
+        XCODE_ATTRIBUTE_MARKETING_VERSION "${VERSION}"
+        XCODE_ATTRIBUTE_CURRENT_PROJECT_VERSION "${VERSION}.0" # Update suffix manually for each build
+
         # Embed Swift standard libraries
         XCODE_ATTRIBUTE_ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES "YES"
     )

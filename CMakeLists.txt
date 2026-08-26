@@ -10,7 +10,7 @@ if(IOS)
     set(CMAKE_BUILD_WITH_INSTALL_RPATH ON)
 endif()
 
-set(VERSION "0.2")
+set(VERSION "1.3")
 
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Qml Quick QuickControls2)
 
