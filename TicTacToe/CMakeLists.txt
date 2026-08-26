@@ -34,9 +34,9 @@ if (APPLE)
         XCODE_EMBED_FRAMEWORKS ResultChecker
         XCODE_EMBED_FRAMEWORKS_CODE_SIGN_ON_COPY YES
 
-        # Version app bundle (doesn´t work)
-        #XCODE_ATTRIBUTE_MARKETING_VERSION "${VERSION}"
-        #XCODE_ATTRIBUTE_CURRENT_PROJECT_VERSION "${VERSION}.0" # Update suffix manually for each build
+        # Version app bundle. Increment the .0 suffix for each App Store upload.
+        MACOSX_BUNDLE_SHORT_VERSION_STRING "${VERSION}"    # CFBundleShortVersionString (marketing)
+        MACOSX_BUNDLE_BUNDLE_VERSION       "${VERSION}.0"  # CFBundleVersion (build number)
     )
 
     if(IOS)
