@@ -38,8 +38,8 @@ if (APPLE)
         #XCODE_ATTRIBUTE_MARKETING_VERSION "${VERSION}"
         #XCODE_ATTRIBUTE_CURRENT_PROJECT_VERSION "${VERSION}.0" # Update suffix manually for each build
 
-        # Embed Swift standard libraries
-        XCODE_ATTRIBUTE_ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES "YES"
+        # Embed Swift standard libraries (neither NO or YES fixes the issue with missing Swift libraries in app bundle)
+        XCODE_ATTRIBUTE_ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES "NO"
     )
 
     if(IOS)
